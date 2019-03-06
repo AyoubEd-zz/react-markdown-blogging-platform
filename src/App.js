@@ -5,7 +5,6 @@ import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
 //Components
-import Slider from "./components/slider";
 //Files
 import profile from "./assets/profile.png";
 import { data } from "./resumeInfo";
@@ -18,7 +17,6 @@ const style = {
     color: gray
   },
   bar: {
-    marginTop: "10px",
     backgroundColor: gray,
     flexFlow: "row",
     height: "fit-content",
@@ -127,8 +125,18 @@ class App extends Component {
           <div className={classes.bar}>
             <div className={classes.textInBar}>
               <Typography variant="h6" className={classes.textInBar}>
-                Software Engineer and Student at the National Institute INPT
+                Software Engineer | Student at the National Institute INPT
               </Typography>
+              <div
+                style={{
+                  fontStyle: "italic",
+                  fontSize: "16px",
+                  color: "lightgray"
+                }}
+              >
+                Still building for the love of building, and seeking knowledge
+                for the love of discovery and sharing.
+              </div>
             </div>
           </div>
         </header>
@@ -147,8 +155,23 @@ class App extends Component {
                 >
                   <div className={classes.tag}>{index + 1}</div>
                   <div className={classes.jobContent}>
-                    <div>{ele.company}</div>
-                    <div>{ele.title}</div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexFlow: "row",
+                        alignItems: "center"
+                      }}
+                    >
+                      <Typography variant="h6" style={{ padding: "0 10px" }}>
+                        {ele.company}
+                      </Typography>
+                      <Typography variant="caption">{ele.time}</Typography>
+                    </div>
+                    <Typography variant="subtitle2">{ele.title}</Typography>
+                    <Typography variant="p" style={{ padding: "5px" }}>
+                      {" "}
+                      {ele.description}
+                    </Typography>
                   </div>
                   <img
                     src={require(`./assets/${ele.logo}.png`)}
@@ -179,9 +202,45 @@ class App extends Component {
           </div>
 
           <Typography variant="h5" align="left" className={classes.section}>
-            Gallery
+            Blog Posts
           </Typography>
-          <Slider />
+          <Typography variant="h5" align="left" className={classes.section}>
+            Extra curriculars
+          </Typography>
+
+          <Typography variant="h5" align="left" className={classes.section}>
+            About
+          </Typography>
+          <div style={{ display: "flex", flexFlow: "row", flexWrap: "wrap" }}>
+            <div style={{ flex: 1, minWidth: "300px" }}>
+              <Typography variant="body1" align="left" paragraph>
+                Hello! I'm Ayoub, a Software Engineer interested in design of
+                large systems.
+              </Typography>
+              <Typography variant="body1" align="left" paragraph>
+                I'm a senior at INPT, with a focus on new technologies and
+                fields like AI, Machine Learning, Cloud Computing, and
+                Distributed Systems.
+              </Typography>
+              <Typography variant="body1" align="left" paragraph>
+                I am part of the Competitive Programming Club, where I tutored
+                Algorithms & Data Structures. I was also a tutor at the Web
+                Development Bootcamp that took over Summer 2018.
+              </Typography>
+            </div>
+            <div
+              style={{
+                width: "fit-content",
+                height: "fit-content",
+                minWidth: "300px"
+              }}
+            >
+              <img src={require(`./assets/lgPie.png`)} />
+              <Typography variant="caption">
+                Languages used on my Github account
+              </Typography>
+            </div>
+          </div>
         </div>
       </div>
     );
