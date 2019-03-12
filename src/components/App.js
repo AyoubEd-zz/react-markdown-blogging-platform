@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 //Material UI Imports
-import Typography from "@material-ui/core/Typography";
+import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
 //Components
 //Files
-import profile from "./assets/profile.png";
-import { data } from "./resumeInfo";
+import profile from "../assets/profile.png";
+import { data } from "../resumeInfo";
 import "./App.css";
 
 const gray = "rgb(74, 74, 74)";
@@ -62,6 +62,7 @@ const style = {
     content: "attr(date)"
   },
   tag: {
+    position: "absolute",
     background: gray,
     height: "25px",
     width: "25px",
@@ -78,8 +79,8 @@ const style = {
     padding: "0 1em"
   },
   videoContainer: {
-    flex: 1,
-    width: "600px",
+    flexGrow: 1,
+    width: "200px",
     height: "auto",
     alignSelf: "flex-start",
     margin: "0.5em"
@@ -174,8 +175,8 @@ class App extends Component {
                     </Typography>
                   </div>
                   <img
-                    src={require(`./assets/${ele.logo}.png`)}
-                    alt="wy"
+                    src={require(`../assets/${ele.logo}.png`)}
+                    alt="logo"
                     style={{ height: "5em" }}
                   />
                 </div>
@@ -213,20 +214,11 @@ class App extends Component {
           </Typography>
           <div style={{ display: "flex", flexFlow: "row", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: "300px" }}>
-              <Typography variant="body1" align="left" paragraph>
-                Hello! I'm Ayoub, a Software Engineer interested in design of
-                large systems.
-              </Typography>
-              <Typography variant="body1" align="left" paragraph>
-                I'm a senior at INPT, with a focus on new technologies and
-                fields like AI, Machine Learning, Cloud Computing, and
-                Distributed Systems.
-              </Typography>
-              <Typography variant="body1" align="left" paragraph>
-                I am part of the Competitive Programming Club, where I tutored
-                Algorithms & Data Structures. I was also a tutor at the Web
-                Development Bootcamp that took over Summer 2018.
-              </Typography>
+              {data.aboutme.map(ele => (
+                <Typography variant="body1" align="left" paragraph>
+                  {ele}
+                </Typography>
+              ))}
             </div>
             <div
               style={{
@@ -235,9 +227,9 @@ class App extends Component {
                 minWidth: "300px"
               }}
             >
-              <img src={require(`./assets/lgPie.png`)} />
+              <img src={require(`../assets/lgPie.png`)} />
               <Typography variant="caption">
-                Languages used on my Github account
+                Languages used as reported by Github account.
               </Typography>
             </div>
           </div>

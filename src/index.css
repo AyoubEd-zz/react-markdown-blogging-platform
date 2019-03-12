@@ -9,3 +9,15 @@ body {
 code {
   font-family: "Open Sans";
 }
+
+menuitem {
+  width: "fit-content";
+  margin: "0 10px";
+  color: "gray";
+}
+
+menuitem:hover {
+  cursor: "pointer";
+  color: gray;
+  border-bottom: "2px solid gray";
+}
