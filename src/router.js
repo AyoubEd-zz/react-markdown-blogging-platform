@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import App from "./components/App";
 import Blog from "./components/blog";
+import Post from "./components/post";
 
 const gray = "rgb(74, 74, 74)";
 
@@ -59,7 +60,8 @@ class RouterComponent extends React.Component {
               </Link>
             </Typography>
           </div>
-          <Route path="/blog" component={Blog} />
+          <Route path="/blog/:id" component={Post} />
+          <Route path="/blog" exact component={Blog} />
           <Route path="/" exact component={App} />
         </div>
       </Router>

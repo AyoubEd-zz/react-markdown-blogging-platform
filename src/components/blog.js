@@ -3,13 +3,20 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 //Components
 //Files
+import { bloglist } from "./bloglist";
 import "./App.css";
 const style = {};
 
 class Blog extends Component {
   render() {
     const { classes } = this.props;
-    return <div className="App">Hello from Blog</div>;
+    return (
+      <div className="App">
+        {bloglist.map(ele => (
+          <div style={{ display: "column" }}>{ele.title}</div>
+        ))}
+      </div>
+    );
   }
 }
 
