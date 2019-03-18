@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import App from "./components/App";
 import Blog from "./components/blog";
-import Post from "./components/post";
 
 const gray = "rgb(74, 74, 74)";
 
@@ -12,57 +11,99 @@ const styles = {
   menuItem: {
     width: "fit-content",
     margin: "0 10px",
+    fontWeight: 600,
     color: gray,
+    textDecoration: "none",
     "&:hover": {
-      color: "#5d93ff"
+      color: "#5d93ff",
+      textDecoration: "underline"
     }
   }
 };
 
 class RouterComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { url: "" };
+  }
   render() {
     const { classes } = this.props;
     return (
       <Router>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexGrow: 1,
+            flexFlow: "column"
+          }}
+        >
           <div
             style={{
               display: "flex",
               flexFlow: "row",
               justifyContent: "center",
-              height: "20px",
+              height: "10vh",
               margin: "10px 0 30px"
             }}
           >
             <Typography variant="button">
-              <Link to="/" className={classes.menuItem}>
+              <Link
+                to="/"
+                className={classes.menuItem}
+                onClick={() => this.setState({ url: "/" })}
+              >
                 Home
               </Link>
             </Typography>
             <Typography variant="button">
-              <Link to="/os" className={classes.menuItem}>
+              <Link
+                to="/operatingsystems"
+                className={classes.menuItem}
+                onClick={() => {
+                  this.setState({ url: "/operatingsystems" });
+                }}
+              >
                 Open Source
               </Link>
             </Typography>
             <Typography variant="button">
-              <Link to="/tmcs" className={classes.menuItem}>
+              <Link
+                to="/teachingmyselfcs"
+                className={classes.menuItem}
+                onClick={() => this.setState({ url: "/teachingmyselfcs" })}
+              >
                 Teaching myself cs
               </Link>
             </Typography>
             <Typography variant="button">
-              <Link to="/cp" className={classes.menuItem}>
+              <Link
+                to="/competitiveprogramming"
+                className={classes.menuItem}
+                onClick={() =>
+                  this.setState({ url: "/competitiveprogramming" })
+                }
+              >
                 Competitive Programming
               </Link>
             </Typography>
             <Typography variant="button">
-              <Link to="/blog" className={classes.menuItem}>
+              <Link
+                to="/blog"
+                className={classes.menuItem}
+                onClick={() => this.setState({ url: "/blog" })}
+              >
                 Blog
               </Link>
             </Typography>
           </div>
-          <Route path="/blog/:id" component={Post} />
-          <Route path="/blog" exact component={Blog} />
-          <Route path="/" exact component={App} />
+          <div style={{ flexGrow: 1, height: "90vh" }}>
+            <Route path="/" exact component={App} />
+            <Route
+              path="/*"
+              render={props => <Blog {...props} url={this.state.url} />}
+              url={this.state.url}
+            />
+          </div>
         </div>
       </Router>
     );

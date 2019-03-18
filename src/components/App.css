@@ -2,6 +2,8 @@
   text-align: center;
   padding-left: 15vw;
   padding-right: 15vw;
+  overflow: auto;
+  height: 100%;
 }
 
 @media only screen and (max-width: 800px) {
@@ -12,7 +14,7 @@
 }
 
 .App-logo {
-  border-radius: 100%;
+  border-radius: 50%;
   height: 22vmin;
   pointer-events: none;
 }
@@ -28,13 +30,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

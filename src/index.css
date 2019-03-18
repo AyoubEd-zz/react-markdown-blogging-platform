@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
 }
 
 code {
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
 }
 
 menuitem {
@@ -20,4 +23,11 @@ menuitem:hover {
   cursor: "pointer";
   color: gray;
   border-bottom: "2px solid gray";
+}
+
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
 }

@@ -14,7 +14,11 @@ const gray = "rgb(74, 74, 74)";
 
 const style = {
   titleName: {
-    color: gray
+    color: gray,
+    textTransform: "uppercase",
+    // lineHeight: "2.2813rem",
+    fontWeight: "300",
+    fontSize: "1.825rem"
   },
   bar: {
     backgroundColor: gray,
@@ -62,8 +66,7 @@ const style = {
     content: "attr(date)"
   },
   tag: {
-    position: "absolute",
-    background: gray,
+    fill: "gray !imporant",
     height: "25px",
     width: "25px",
     borderRadius: "100%",
@@ -154,7 +157,12 @@ class App extends Component {
                     flexFlow: "row"
                   }}
                 >
-                  <div className={classes.tag}>{index + 1}</div>
+                  {/* <div className={classes.tag}>{index + 1}</div> */}
+                  <img
+                    className={classes.tag}
+                    src={require(`../assets/${index + 1}.svg`)}
+                    alt="alt"
+                  />
                   <div className={classes.jobContent}>
                     <div
                       style={{
