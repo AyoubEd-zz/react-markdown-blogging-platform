@@ -86,23 +86,18 @@ class Postlist extends Component {
     switch (this.props.location.pathname) {
       case "/blog":
         list = lists.blog;
-        // this.setState({ list: lists.blog });
         break;
       case "/competitiveprogramming":
         list = lists.competitiveprogramming;
-        // this.setState({ list: lists.competitiveprogramming });
         break;
       case "/teachingmyselfcs":
         list = lists.teachingmyselfcs;
-        // this.setState({ list: lists.teachingmyselfcs });
         break;
       case "/operatingsystems":
         list = lists.operatingsystems;
-        // this.setState({ list: lists.operatingsystems });
         break;
       default:
         list = lists.errorlist;
-      // this.setState({ list: lists.errorlist });
     }
 
     for (let tag of this.state.filter) {
