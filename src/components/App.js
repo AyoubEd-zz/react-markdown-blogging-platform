@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
 //Components
+import Footer from "./footer"
 //Files
 import profile from "../assets/profile.png";
 import { data } from "../resumeInfo";
@@ -242,6 +243,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

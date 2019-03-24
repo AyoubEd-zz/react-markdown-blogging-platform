@@ -13,3 +13,4 @@ DATE=`date +%d-%m-%y`
 FILE3=${DATE}_${FILE2}.md
 touch $FILE3    
 echo -e '# '$FILE1'\n''Posted on '$DATE'\n''tags = '$TAGLINE > $FILE3
+vim $FILE3
