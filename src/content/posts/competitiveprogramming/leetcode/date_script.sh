@@ -17,6 +17,6 @@ FILE2=$(echo $FILE2 | tr ' ' '-')
 FILE2=$(echo $FILE2 | tr '.' '-')
 DATE=`date +%d-%m-%y`
 FILE3=${DATE}_${FILE2}.md
-touch $FILE3    
+touch $FILE2
 echo -e '# '$FILE1'\n''Posted on '$DATE'\n''tags = '$TAGLINE > $FILE3
 vim $FILE3
