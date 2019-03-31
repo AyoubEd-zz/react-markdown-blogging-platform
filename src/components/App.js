@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 //Components
 import Footer from "./footer"
 //Files
-import profile from "../assets/profile.png";
+import profile from "../content/assets/profile.png";
 import { data } from "../resumeInfo";
 import "./App.css";
 
@@ -161,7 +161,7 @@ class App extends Component {
                   {/* <div className={classes.tag}>{index + 1}</div> */}
                   <img
                     className={classes.tag}
-                    src={require(`../assets/${index + 1}.svg`)}
+                    src={require(`../content/assets/${index + 1}.svg`)}
                     alt="alt"
                   />
                   <div className={classes.jobContent}>
@@ -184,7 +184,7 @@ class App extends Component {
                     </Typography>
                   </div>
                   <img
-                    src={require(`../assets/${ele.logo}.png`)}
+                    src={require(`../content/assets/${ele.logo}.png`)}
                     alt="logo"
                     style={{ height: "5em" }}
                   />
@@ -236,7 +236,7 @@ class App extends Component {
                 minWidth: "300px"
               }}
             >
-              <img src={require(`../assets/lgPie.png`)} />
+              <img src={require(`../content/assets/lgPie.png`)} />
               <Typography variant="caption">
                 Languages used as reported by Github account.
               </Typography>

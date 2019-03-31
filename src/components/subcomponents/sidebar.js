@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 //Comopents
 //Files
-import profile from "../../assets/profile.png";
+import profile from "../../content/assets/profile.png";
+import * as lists from "../lists";
 
 const styles = {
   tagList: {
@@ -29,6 +30,25 @@ const styles = {
 class Sidebar extends Component {
   render() {
     const { classes } = this.props;
+    let tags;
+
+    switch (this.props.history.location.pathname) {
+      case "/blog":
+        tags = lists.blog_tags;
+        break;
+      case "/competitiveprogramming":
+        tags = lists.competitiveprogramming_tags;
+        break;
+      case "/teachingmyselfcs":
+        tags = lists.teachingmyselfcs_tags;
+        break;
+      case "/operatingsystems":
+        tags = lists.operatingsystems_tags;
+        break;
+      default:
+        tags = [];
+    }
+
     return (
       <div
         style={{
@@ -44,7 +64,7 @@ class Sidebar extends Component {
           src={profile}
           className="App-logo"
           alt="profile"
-          style={{ height: "80px", width: "80px", marginBottom: "10px" }}
+          style={{ height: "120px", width: "120px", marginBottom: "10px" }}
         />
         <div
           style={{
@@ -63,8 +83,7 @@ class Sidebar extends Component {
             lineHeight: "1.625rem"
           }}
         >
-          Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam.
-          Sed arcu.
+          Trying to learn and discover the most about Tech.
         </div>
         <div
           style={{
@@ -79,14 +98,14 @@ class Sidebar extends Component {
           >
             All
           </div>
-          <div className={classes.tagList}>Studying</div>
-          <div className={classes.tagList}>Growth</div>
-          <div className={classes.tagList}>Productivity</div>
+          {tags.map(ele => (
+            <div className={classes.tagList}>{ele}</div>
+          ))}
         </div>
         <div style={{ display: "flex", flexFlow: "row wrap" }}>
           <div className={classes.icons}>
             <a
-              href="https://www.twitter.com/#"
+              href="https://twitter.com/AyoubEddakhly"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -97,7 +116,7 @@ class Sidebar extends Component {
           </div>
           <div className={classes.icons}>
             <a
-              href="https://github.com/#"
+              href="https://github.com/ayoubed"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -107,7 +126,11 @@ class Sidebar extends Component {
             </a>
           </div>
           <div className={classes.icons}>
-            <a href="mailto:#" rel="noopener noreferrer" target="_blank">
+            <a
+              href="mailto:ayoubed@protonmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <svg viewBox="0 0 28 28">
                 <path d="M26 23.5v-12c-0.328 0.375-0.688 0.719-1.078 1.031-2.234 1.719-4.484 3.469-6.656 5.281-1.172 0.984-2.625 2.188-4.25 2.188h-0.031c-1.625 0-3.078-1.203-4.25-2.188-2.172-1.813-4.422-3.563-6.656-5.281-0.391-0.313-0.75-0.656-1.078-1.031v12c0 0.266 0.234 0.5 0.5 0.5h23c0.266 0 0.5-0.234 0.5-0.5zM26 7.078c0-0.391 0.094-1.078-0.5-1.078h-23c-0.266 0-0.5 0.234-0.5 0.5 0 1.781 0.891 3.328 2.297 4.438 2.094 1.641 4.188 3.297 6.266 4.953 0.828 0.672 2.328 2.109 3.422 2.109h0.031c1.094 0 2.594-1.437 3.422-2.109 2.078-1.656 4.172-3.313 6.266-4.953 1.016-0.797 2.297-2.531 2.297-3.859zM28 6.5v17c0 1.375-1.125 2.5-2.5 2.5h-23c-1.375 0-2.5-1.125-2.5-2.5v-17c0-1.375 1.125-2.5 2.5-2.5h23c1.375 0 2.5 1.125 2.5 2.5z" />
               </svg>

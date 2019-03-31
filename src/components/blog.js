@@ -33,7 +33,7 @@ class Blog extends Component {
             }
           }}
         >
-          <Sidebar />
+          <Sidebar {...this.props} />
         </div>
         <div
           style={{

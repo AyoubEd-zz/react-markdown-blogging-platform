@@ -58,7 +58,7 @@ const styles = {
   closeicon: {
     color: "#f19f46",
     "&:hover": {
-      color: "#000"
+      borderColor: "#000"
     }
   }
 };
@@ -128,52 +128,58 @@ class Postlist extends Component {
             </div>
           ))}
         </div>
-        {list.map((element, index) => (
-          <div key={index}>
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "row"
-              }}
-            >
-              <div className={classes.upperT}>
-                {moment(element.date).format("MMMM YYYY")}
-              </div>
-              {element.tag.map(ele => (
-                <div
-                  key={ele.toString()}
-                  className={classes.upperCat}
-                  onClick={() =>
-                    this.setState(state => {
-                      return { filter: [...state.filter, ele] };
-                    })
-                  }
-                >
-                  {ele}
+        {list.length === 0 && (
+          <div className={classes.postTitle}>Nothing here!</div>
+        )}
+        {list.map((element, index) => {
+          const subUrl = element.category ? element.category + "/" : "";
+          return (
+            <div key={index}>
+              <div
+                style={{
+                  display: "flex",
+                  flexFlow: "row"
+                }}
+              >
+                <div className={classes.upperT}>
+                  {moment(element.date).format("MMMM YYYY")}
                 </div>
-              ))}
+                {element.tag.map(ele => (
+                  <div
+                    key={ele.toString()}
+                    className={classes.upperCat}
+                    onClick={() =>
+                      this.setState(state => {
+                        return { filter: [...state.filter, ele] };
+                      })
+                    }
+                  >
+                    {ele}
+                  </div>
+                ))}
+              </div>
+              <Link
+                to={`${match.url}/${subUrl}${element.link}`}
+                style={{
+                  textDecoration: "none",
+                  marginBottom: "10px",
+                  width: "fit-content"
+                }}
+              >
+                <div className={classes.postTitle}>{element.title}</div>
+              </Link>
+              <div>{element.description}</div>
+              <Link
+                style={{
+                  textDecoration: "none"
+                }}
+                to={`${match.url}/${subUrl}${element.link}`}
+              >
+                <div className={classes.read}>Read</div>
+              </Link>
             </div>
-            <Link
-              to={`${match.url}/${element.link}`}
-              style={{
-                textDecoration: "none",
-                marginBottom: "10px",
-                width: "fit-content"
-              }}
-            >
-              <div className={classes.postTitle}>{element.title}</div>
-            </Link>
-            <div>{element.description}</div>
-            <Link
-              style={{
-                textDecoration: "none"
-              }}
-              to={`${match.url}/${element.link}`}
-            >
-              <div className={classes.read}>Read</div>
-            </Link>
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   }

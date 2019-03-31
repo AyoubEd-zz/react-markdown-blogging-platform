@@ -1,24 +1,25 @@
-/* https://www.brianstorti.com/replication/?fbclid=IwAR1a4SFVbcYGyH6WTXCKaIVVsU09mA6NPtmZCNombq9HybRh6QI5HCPW3PM
- * A Primer on Database Replication
- * System Design
-*/
+# A Primer on Database Replication
+
+this article is a synopsis of what I learned reading [Brian Storti](https://www.brianstorti.com/about/)'s amazing [article](https://www.brianstorti.com/replication/) on database replication.
 
 As this is my first article summary, I wanted to point out a couple of things. I think the best thing to retain information is
 asking the right questions, so I will write the summary in that format(question, answer). The second thing is that I'm only discovering a lot of the topics I'm reading about, so please check the facts very thoroughly, I will do my best to do the same.
 
-The article is talking about the authors experience in scaling a database, we can make our applications faster and increase our tolerance to failure?
+The article is talking about the authors experience in scaling databases, we can make our applications faster and increase our tolerance to failure?
 
 * So, why can't we keeping scaling vertically?
+
 Even if we keep increasing our servers performance and that is by: increasing database capacity, getting a more powerful machine, adding more RAM,etc. We can't surpass a threshold set by the maximum speed of our requests.
 
 * What's the solution then?
+
 To solve this problem, we have to scale horizentally. So, how can we do it, and how does it solve the issue at hand?
 scaling vertically means creating muliple replicas of our database, possibly in different geographical areas. This way
         - we can keep data close to the users, so less travel time.
         - we can  handle the requests, wich means reducing our latency.
         - we have multiple copies of our data, so more failure tolerance.
 
-| When partitioning our databases, we run into some issues concerning availability and consistency that can be summarized by the CAP theorem.
+when partitioning our databases, we run into some issues concerning availability and consistency that can be summarized by the CAP theorem.
 
 * What does this theorem say?
 When dealing with distributed systems we can't possibly have these 3 properties at the same time: consistency, availability and partition tolerance. Practically, we can say that we are always trading consistency for availability (or vice-versa) when dealing with network partitions.
@@ -34,7 +35,7 @@ Synchronous replication consists of writing to all the nodes before considering 
 | Because of this, a popular strategy is to use a mix of the two which we call semi-synchronous replication.
 | In the Following we are going to delve into a number of solutions implementing this concept.
 
-# Single Leader Replication
+## Single Leader Replication
 This is the most common topology, where we have a single leader.
  leader:   - handles all the 'write' requests
            - replicate the changes to all followers
@@ -54,7 +55,7 @@ we can have a failover strategy
 - request routing problem: redirecting client requests to that node or routing layer
 - a network partition can create two clusters and result in two clusters and two masters
 
-# Multi Leader Replication
+## Multi Leader Replication
 
 * How can we deal with conflict in this situation?
 

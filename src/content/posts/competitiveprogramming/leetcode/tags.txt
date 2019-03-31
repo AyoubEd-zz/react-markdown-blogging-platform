@@ -1,2 +1,3 @@
 brute_force
 quicksort
+-1_trick

@@ -31,3 +31,12 @@
 .App-link {
   color: #61dafb;
 }
+
+.mardown-body {
+  padding: 0 !important;
+}
+
+.result {
+  padding-top:-10;
+  background: #e6e6e6;
+}

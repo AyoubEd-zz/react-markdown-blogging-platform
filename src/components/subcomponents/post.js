@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Markdown from "react-markdown";
+import Markdown from "react-markdown/with-html";
 import CodeBlock from "../code-block";
 //Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
@@ -19,6 +19,7 @@ class Post extends Component {
   }
   componentDidMount() {
     this.readTextFile();
+    console.log(this.props.match.url);
   }
 
   readTextFile = () => {
@@ -26,13 +27,14 @@ class Post extends Component {
       var rawFile = new XMLHttpRequest();
       rawFile.open(
         "GET",
-        require(`../../posts${this.props.match.url}.md`),
+        require(`../../content/posts${this.props.match.url}.md`),
         false
       );
       rawFile.onreadystatechange = () => {
         if (rawFile.readyState === 4) {
           if (rawFile.status === 200 || rawFile.status === 0) {
             var allText = rawFile.responseText;
+            console.log(allText);
             this.setState({
               text: allText
             });
@@ -55,10 +57,10 @@ class Post extends Component {
         <div className="result-pane">
           <div className="markdown-body">
             <Markdown
-              className="result"
               source={this.state.text}
               skipHtml={this.state.htmlMode === "skip"}
               escapeHtml={this.state.htmlMode === "escape"}
+              disallowedTypes={["Paragraph"]}
               renderers={{ code: CodeBlock }}
             />
           </div>
