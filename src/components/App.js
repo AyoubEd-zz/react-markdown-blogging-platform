@@ -88,6 +88,25 @@ const style = {
     height: "auto",
     alignSelf: "flex-start",
     margin: "0.5em"
+  },
+  companyTitle: {
+    width: "fit-content",
+    fontWeight: 600,
+    color: "#222",
+    fontSize: "1.4875rem",
+    // lineHeight: "2.4375rem",
+    borderBottom: "0.5px solid white"
+  },
+  upperCat: {
+    textTransform: "uppercase",
+    fontWeight: 600,
+    fontSize: ".875rem",
+    marginLeft: "10px",
+    color: "#F19F46",
+    "&:hover": {
+      color: "#5d93ff",
+      cursor: "pointer"
+    }
   }
 };
 
@@ -127,7 +146,7 @@ class App extends Component {
               <FaTwitter className={classes.icon} />
             </a>
           </div>
-          <div className={classes.bar}>
+          {/* <div className={classes.bar}>
             <div className={classes.textInBar}>
               <Typography variant="h6" className={classes.textInBar}>
                 Software Engineer | Student at the National Institute INPT
@@ -143,14 +162,15 @@ class App extends Component {
                 for the love of discovery and sharing.
               </div>
             </div>
-          </div>
+          </div> */}
         </header>
         <div>
           <Typography variant="h5" align="left" className={classes.section}>
             Experience
           </Typography>
           <div className={classes.jobs}>
-            {data.jobs.map((ele, index) => (
+            {!data.jobs && "Undergoing changes"}
+            {data.jobs && data.jobs.map((ele, index) => (
               <div className={classes.job}>
                 <div
                   style={{
@@ -172,10 +192,10 @@ class App extends Component {
                         alignItems: "center"
                       }}
                     >
-                      <Typography variant="h6" style={{ padding: "0 10px" }}>
+                      <Typography variant="h6" className={classes.companyTitle} style={{ padding: "0 10px" }}>
                         {ele.company}
                       </Typography>
-                      <Typography variant="caption">{ele.time}</Typography>
+                      <Typography variant="caption" className={classes.upperCat}>{ele.time}</Typography>
                     </div>
                     <Typography variant="subtitle2">{ele.title}</Typography>
                     <Typography variant="p" style={{ padding: "5px" }}>
