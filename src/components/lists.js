@@ -11,10 +11,17 @@ export const blog = [
 export const competitiveprogramming = [
   {
     date:"2019-04-07",
-    tag:["uva", "graph", "dfs"],
+    tag:["uva", "graphs", "dfs"],
     title:"UVa 11902 - Dominator",
     link:"11902-dominator",
     category: "uva"
+  },
+  {
+    date:"2019-04-11",
+    tag:["uva", "graphs"],
+    title:"UVa 11831 - Sticker Collector Robot",
+    link:"11831-sticker-collector-robot",
+    category:"uva"
   }
 ];
 

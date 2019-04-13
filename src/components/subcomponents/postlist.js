@@ -58,7 +58,7 @@ const styles = {
   closeicon: {
     color: "#f19f46",
     "&:hover": {
-      borderColor: "#000"
+      color: "#ffbc75"
     }
   }
 };
@@ -76,6 +76,10 @@ class Postlist extends Component {
     if (nextProps.match.url !== this.state.url) {
       this.setState({ url: nextProps.match.url, filter: [] });
     }
+  }
+
+  deleteTagFromFilter = (tag)=>{
+    this.setState(state=>({filter: state.filter.filter(ele=>ele!==tag)}))
   }
 
   render() {
@@ -114,14 +118,15 @@ class Postlist extends Component {
                 flexFlow: "row",
                 margin: "0 5px 15px 0"
               }}
+              key={ele}
             >
               <Chip
                 label={ele}
-                onDelete={() => console.log("hole")}
+                onDelete={() => this.deleteTagFromFilter(ele)}
                 color="secondary"
                 classes={{
                   root: classes.tag,
-                  deleteIconOutlinedColorSecondary: classes.closeicon
+                  deleteIcon: classes.closeicon
                 }}
                 variant="outlined"
               />

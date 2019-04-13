@@ -1,6 +1,6 @@
 # UVa 11902 - Dominator
 
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -198,7 +198,7 @@ class App extends Component {
                       <Typography variant="caption" className={classes.upperCat}>{ele.time}</Typography>
                     </div>
                     <Typography variant="subtitle2">{ele.title}</Typography>
-                    <Typography variant="p" style={{ padding: "5px" }}>
+                    <Typography variant="body1" style={{ padding: "5px" }}>
                       {" "}
                       {ele.description}
                     </Typography>

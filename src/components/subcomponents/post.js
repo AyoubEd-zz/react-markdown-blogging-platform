@@ -19,7 +19,7 @@ class Post extends Component {
   }
   componentDidMount() {
     this.readTextFile();
-    console.log(this.props.match.url);
+    // console.log(this.props.match.url);
   }
 
   readTextFile = () => {
@@ -34,7 +34,6 @@ class Post extends Component {
         if (rawFile.readyState === 4) {
           if (rawFile.status === 200 || rawFile.status === 0) {
             var allText = rawFile.responseText;
-            console.log(allText);
             this.setState({
               text: allText
             });
@@ -60,7 +59,8 @@ class Post extends Component {
               source={this.state.text}
               skipHtml={this.state.htmlMode === "skip"}
               escapeHtml={this.state.htmlMode === "escape"}
-              disallowedTypes={["Paragraph"]}
+              // disallowedTypes={["Paragraph"]}
+              showLineNumbers={true}
               renderers={{ code: CodeBlock }}
             />
           </div>
