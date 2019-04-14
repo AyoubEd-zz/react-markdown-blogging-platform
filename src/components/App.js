@@ -5,7 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
 //Components
-import Footer from "./footer"
+import Footer from "./footer";
+import Chart from "./helpercomponents/chart";
 //Files
 import profile from "../content/assets/profile.png";
 import { data } from "../resumeInfo";
@@ -170,47 +171,57 @@ class App extends Component {
           </Typography>
           <div className={classes.jobs}>
             {!data.jobs && "Undergoing changes"}
-            {data.jobs && data.jobs.map((ele, index) => (
-              <div className={classes.job}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexFlow: "row"
-                  }}
-                >
-                  {/* <div className={classes.tag}>{index + 1}</div> */}
-                  <img
-                    className={classes.tag}
-                    src={require(`../content/assets/${index + 1}.svg`)}
-                    alt="alt"
-                  />
-                  <div className={classes.jobContent}>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexFlow: "row",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Typography variant="h6" className={classes.companyTitle} style={{ padding: "0 10px" }}>
-                        {ele.company}
+            {data.jobs &&
+              data.jobs.map((ele, index) => (
+                <div className={classes.job}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexFlow: "row"
+                    }}
+                  >
+                    {/* <div className={classes.tag}>{index + 1}</div> */}
+                    <img
+                      className={classes.tag}
+                      src={require(`../content/assets/${index + 1}.svg`)}
+                      alt="alt"
+                    />
+                    <div className={classes.jobContent}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexFlow: "row",
+                          alignItems: "center"
+                        }}
+                      >
+                        <Typography
+                          variant="h6"
+                          className={classes.companyTitle}
+                          style={{ padding: "0 10px" }}
+                        >
+                          {ele.company}
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          className={classes.upperCat}
+                        >
+                          {ele.time}
+                        </Typography>
+                      </div>
+                      <Typography variant="subtitle2">{ele.title}</Typography>
+                      <Typography variant="body1" style={{ padding: "5px" }}>
+                        {" "}
+                        {ele.description}
                       </Typography>
-                      <Typography variant="caption" className={classes.upperCat}>{ele.time}</Typography>
                     </div>
-                    <Typography variant="subtitle2">{ele.title}</Typography>
-                    <Typography variant="body1" style={{ padding: "5px" }}>
-                      {" "}
-                      {ele.description}
-                    </Typography>
+                    <img
+                      src={require(`../content/assets/${ele.logo}.png`)}
+                      alt="logo"
+                      style={{ height: "5em" }}
+                    />
                   </div>
-                  <img
-                    src={require(`../content/assets/${ele.logo}.png`)}
-                    alt="logo"
-                    style={{ height: "5em" }}
-                  />
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           <Typography variant="h5" align="left" className={classes.section}>
@@ -249,18 +260,12 @@ class App extends Component {
                 </Typography>
               ))}
             </div>
-            <div
-              style={{
-                width: "fit-content",
-                height: "fit-content",
-                minWidth: "300px"
-              }}
-            >
-              <img src={require(`../content/assets/lgPie.png`)} />
-              <Typography variant="caption">
-                Languages used as reported by Github account.
-              </Typography>
-            </div>
+          </div>
+          <div>
+            <Chart />
+            <Typography variant="caption">
+              Languages used as reported by Github account.
+            </Typography>
           </div>
         </div>
         <Footer />
