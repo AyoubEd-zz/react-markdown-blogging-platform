@@ -5,8 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
 //Components
-import Footer from "./footer";
 import Chart from "./helpercomponents/chart";
+import Footer from "./helpercomponents/footer";
 //Files
 import profile from "../content/assets/profile.png";
 import { data } from "../resumeInfo";
@@ -115,7 +115,13 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="App">
+      <div
+        className="App"
+        onScroll={() => {
+          //     const node = ReactDOM.findDOMNode(this);
+          // node.scrollTop = node.scrollHeight;
+        }}
+      >
         <header className="App-header">
           <img src={profile} className="App-logo" alt="profile" />
           <Typography variant="h4" className={classes.titleName} gutterBottom>
@@ -173,7 +179,7 @@ class App extends Component {
             {!data.jobs && "Undergoing changes"}
             {data.jobs &&
               data.jobs.map((ele, index) => (
-                <div className={classes.job}>
+                <div className={classes.job} key={index}>
                   <div
                     style={{
                       display: "flex",
@@ -231,6 +237,7 @@ class App extends Component {
             {data.projects.map(ele => (
               <div className={classes.videoContainer}>
                 <iframe
+                  title={ele.title}
                   src={ele.src}
                   height="auto"
                   width="100%"
@@ -254,8 +261,8 @@ class App extends Component {
           </Typography>
           <div style={{ display: "flex", flexFlow: "row", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: "300px" }}>
-              {data.aboutme.map(ele => (
-                <Typography variant="body1" align="left" paragraph>
+              {data.aboutme.map((ele, index) => (
+                <Typography variant="body1" align="left" paragraph key={index}>
                   {ele}
                 </Typography>
               ))}

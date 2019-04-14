@@ -49,8 +49,6 @@ class Post extends Component {
   };
 
   render() {
-    const { match } = this.props;
-
     return (
       <div>
         <div className="result-pane">
@@ -59,8 +57,6 @@ class Post extends Component {
               source={this.state.text}
               skipHtml={this.state.htmlMode === "skip"}
               escapeHtml={this.state.htmlMode === "escape"}
-              // disallowedTypes={["Paragraph"]}
-              showLineNumbers={true}
               renderers={{ code: CodeBlock }}
             />
           </div>

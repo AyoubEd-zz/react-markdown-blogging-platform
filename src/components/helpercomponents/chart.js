@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
-import GitHub from "github-api";
 import Axios from "axios";
 
 const chartOptions = {
@@ -37,7 +36,7 @@ export default class Chart extends Component {
   }
   componentDidMount() {
     const exArr = ["AyoubEd/OS161"];
-    const lanExArr = ["HTML", "CSS"];
+    const lanExArr = ["HTML", "CSS", "TypeScript"];
     Axios({
       method: "get",
       url: "https://api.github.com/users/ayoubed/repos"

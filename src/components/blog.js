@@ -8,7 +8,6 @@ import Postlist from "./subcomponents/postlist";
 import Post from "./subcomponents/post";
 //Files
 import "./App.css";
-import * as lists from "./lists";
 
 const style = {};
 
@@ -19,25 +18,14 @@ class Blog extends Component {
         style={{
           display: "flex",
           flexFlow: "row wrap",
-          height: "90vh"
+          height: "90vh",
+          marginTop: "5vh"
         }}
       >
+        <Sidebar {...this.props} />
         <div
           style={{
-            display: "block",
-            borderRight: "solid 1px #E6E6E6",
-            height: "fit-content",
-            width: "400px",
-            ["@media (minWidth:780px)"]: {
-              width: "100%"
-            }
-          }}
-        >
-          <Sidebar {...this.props} />
-        </div>
-        <div
-          style={{
-            padding: "0 40px",
+            padding: "0 60px",
             flex: "1 1 400px",
             height: "100%",
             overflow: "auto"

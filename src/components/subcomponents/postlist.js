@@ -8,7 +8,7 @@ import Chip from "@material-ui/core/Chip";
 //Components
 
 //File Imports
-import * as lists from "../lists";
+import * as lists from "../../content/lists";
 
 const styles = {
   postTitle: {
@@ -78,9 +78,11 @@ class Postlist extends Component {
     }
   }
 
-  deleteTagFromFilter = (tag)=>{
-    this.setState(state=>({filter: state.filter.filter(ele=>ele!==tag)}))
-  }
+  deleteTagFromFilter = tag => {
+    this.setState(state => ({
+      filter: state.filter.filter(ele => ele !== tag)
+    }));
+  };
 
   render() {
     const { classes, match } = this.props;
@@ -97,8 +99,8 @@ class Postlist extends Component {
       case "/teachingmyselfcs":
         list = lists.teachingmyselfcs;
         break;
-      case "/operatingsystems":
-        list = lists.operatingsystems;
+      case "/opensource":
+        list = lists.opensource;
         break;
       default:
         list = lists.errorlist;

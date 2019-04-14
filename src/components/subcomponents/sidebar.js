@@ -3,8 +3,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 //Comopents
 //Files
-import profile from "../../content/assets/profile.png";
-import * as lists from "../lists";
+import * as lists from "../../content/lists";
 
 const styles = {
   tagList: {
@@ -30,20 +29,28 @@ const styles = {
 class Sidebar extends Component {
   render() {
     const { classes } = this.props;
-    let tags;
+    let tags, page, description;
 
-    switch (this.props.history.location.pathname) {
-      case "/blog":
+    switch (this.props.history.location.pathname.split("/")[1]) {
+      case "blog":
         tags = lists.blog_tags;
+        description = lists.blog_description;
+        page = "Blog";
         break;
-      case "/competitiveprogramming":
+      case "competitiveprogramming":
         tags = lists.competitiveprogramming_tags;
+        description = lists.competitiveprogramming_description;
+        page = "Competitive Programming";
         break;
-      case "/teachingmyselfcs":
+      case "teachingmyselfcs":
         tags = lists.teachingmyselfcs_tags;
+        description = lists.teachingmyselfcs_description;
+        page = "Teaching Myself CS";
         break;
-      case "/operatingsystems":
-        tags = lists.operatingsystems_tags;
+      case "opensource":
+        tags = lists.opensource_tags;
+        description = lists.opensource_description;
+        page = "Open Source";
         break;
       default:
         tags = [];
@@ -54,36 +61,33 @@ class Sidebar extends Component {
         style={{
           display: "flex",
           flexFlow: "column",
-          justifyItems: "center",
           height: "100%",
-          paddingLeft: "40px",
-          width: "300px"
+          paddingLeft: "20vh",
+          width: "50vh",
+          borderRight: "solid 1px #E6E6E6"
         }}
       >
-        <img
-          src={profile}
-          className="App-logo"
-          alt="profile"
-          style={{ height: "120px", width: "120px", marginBottom: "10px" }}
-        />
         <div
           style={{
-            fontSize: "1.025rem",
+            fontSize: "1.125rem",
             fontWeight: 600,
             lineHeight: "1.82813rem",
             marginBottom: "1.625rem"
           }}
         >
-          Ayoub Eddakhly
+          {page}
         </div>
         <div
           style={{
             color: "#888",
             marginBottom: "1.625rem",
-            lineHeight: "1.625rem"
+            lineHeight: "1.625rem",
+            fontStyle: "italic",
+            borderLeft: "2px solid #5d93ff",
+            padding: "0 10px"
           }}
         >
-          Trying to learn and discover the most about Tech.
+          {description}
         </div>
         <div
           style={{
@@ -102,7 +106,13 @@ class Sidebar extends Component {
             <div className={classes.tagList}>{ele}</div>
           ))}
         </div>
-        <div style={{ display: "flex", flexFlow: "row wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexFlow: "row wrap",
+            justifySelf: "flex-end"
+          }}
+        >
           <div className={classes.icons}>
             <a
               href="https://twitter.com/AyoubEddakhly"
@@ -136,11 +146,6 @@ class Sidebar extends Component {
               </svg>
             </a>
           </div>
-        </div>
-        <div
-          style={{ color: "#b6b6b6", fontSize: ".875rem", marginTop: "20px" }}
-        >
-          © Built with ❤ & ReactJs
         </div>
       </div>
     );
