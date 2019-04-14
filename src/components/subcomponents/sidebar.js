@@ -69,7 +69,7 @@ class Sidebar extends Component {
       >
         <div
           style={{
-            fontSize: "1.125rem",
+            fontSize: "1.625rem",
             fontWeight: 600,
             lineHeight: "1.82813rem",
             marginBottom: "1.625rem"
