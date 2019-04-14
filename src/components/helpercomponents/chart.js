@@ -36,6 +36,8 @@ export default class Chart extends Component {
     this.state = { languageData: [] };
   }
   componentDidMount() {
+    const exArr = ["AyoubEd/OS161"];
+    const lanExArr = ["HTML", "CSS"];
     Axios({
       method: "get",
       url: "https://api.github.com/users/ayoubed/repos"
@@ -48,21 +50,22 @@ export default class Chart extends Component {
       .then(response => {
         const lanArr = [];
         for (let i of response) {
-          if (i == "AyoubEd/OS161") continue;
-          console.log(i);
+          if (exArr.includes(i)) continue;
+          // console.log(i);
           Axios({
             method: "get",
             url: `https://api.github.com/repos/${i}/languages`
           })
             .then(res => {
               lanArr.push(res.data);
-              console.log(res.data);
             })
             .then(() => {
               let resArr = new Map();
               lanArr.map(d => {
                 let keyNames = Object.keys(d);
                 for (let j of keyNames) {
+                  // console.log(j);
+                  if (lanExArr.includes(j)) continue;
                   let val = resArr.get(j) ? Number(resArr.get(j)) : 0 + d[j];
                   resArr.set(j, val);
                 }
