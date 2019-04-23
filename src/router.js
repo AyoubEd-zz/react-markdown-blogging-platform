@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import Blog from "./components/blog";
 import Menu from "./components/helpercomponents/menu";
+import Footer from "./components/helpercomponents/footer";
 
 class RouterComponent extends React.Component {
   render() {
@@ -16,10 +17,13 @@ class RouterComponent extends React.Component {
           }}
         >
           <Menu onChangeUrl={this.onChangeUrl} />
-          <div style={{ flexGrow: 1, height: "90vh" }}>
-            <Route path="/" exact component={App} />
-            <Route path="/*" render={props => <Blog {...props} />} />
+          <div style={{ flexGrow: 1, marginTop: "70px" }}>
+            <Switch>
+              <Route path="/" exact component={App} />
+              <Route path="/*" render={props => <Blog {...props} />} />
+            </Switch>
           </div>
+          <Footer />
         </div>
       </Router>
     );

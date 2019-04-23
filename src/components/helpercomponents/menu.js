@@ -10,10 +10,9 @@ const styles = {
     width: "fit-content",
     margin: "0 10px",
     fontWeight: 600,
-    color: gray,
+    color: "#fff",
     textDecoration: "none",
     "&:hover": {
-      color: "#5d93ff",
       textDecoration: "underline"
     }
   }
@@ -27,37 +26,55 @@ class Menu extends Component {
       <div
         style={{
           display: "flex",
-          flexFlow: "row",
+          background: "#000",
           justifyContent: "center",
-          height: "5vh",
-          margin: "10px 0 0 0"
+          position: "fixed",
+          width: "100%",
+          boxShadow: "0 3px 4px -2px #999"
         }}
       >
-        <Typography variant="button">
-          <Link to="/" className={classes.menuItem}>
-            Home
-          </Link>
-        </Typography>
-        <Typography variant="button">
-          <Link to="/blog" className={classes.menuItem}>
-            Blog
-          </Link>
-        </Typography>
-        <Typography variant="button">
-          <Link to="/competitiveprogramming" className={classes.menuItem}>
-            Competitive Programming
-          </Link>
-        </Typography>
-        <Typography variant="button">
-          <Link to="/teachingmyselfcs" className={classes.menuItem}>
-            Teaching myself cs
-          </Link>
-        </Typography>
-        <Typography variant="button">
-          <Link to="/opensource" className={classes.menuItem}>
-            Open Source
-          </Link>
-        </Typography>
+        <div
+          style={{
+            display: "flex",
+            flexFlow: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "15px 0"
+          }}
+        >
+          <Typography variant="button">
+            <Link
+              to="/"
+              className={classes.menuItem}
+              // style={{
+              //   textDecoration:
+              //     this.props.match.url == "Home" ? "underline" : ""
+              // }}
+            >
+              Home
+            </Link>
+          </Typography>
+          <Typography variant="button">
+            <Link to="/blog" className={classes.menuItem}>
+              Blog
+            </Link>
+          </Typography>
+          <Typography variant="button">
+            <Link to="/competitiveprogramming" className={classes.menuItem}>
+              Competitive Programming
+            </Link>
+          </Typography>
+          <Typography variant="button">
+            <Link to="/teachingmyselfcs" className={classes.menuItem}>
+              Teaching myself cs
+            </Link>
+          </Typography>
+          <Typography variant="button">
+            <Link to="/opensource" className={classes.menuItem}>
+              Open Source
+            </Link>
+          </Typography>
+        </div>
       </div>
     );
   }

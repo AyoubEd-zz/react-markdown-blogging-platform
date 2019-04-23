@@ -59,7 +59,7 @@ class Sidebar extends Component {
     return (
       <div
         style={{
-          display: "flex",
+          display: "block",
           flexFlow: "column",
           height: "100%",
           paddingLeft: "20vh",

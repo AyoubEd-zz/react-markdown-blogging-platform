@@ -18,8 +18,8 @@ class Blog extends Component {
         style={{
           display: "flex",
           flexFlow: "row wrap",
-          height: "90vh",
-          marginTop: "5vh"
+          height: "100%"
+          // paddingBottom: "5vh"
         }}
       >
         <Sidebar {...this.props} />

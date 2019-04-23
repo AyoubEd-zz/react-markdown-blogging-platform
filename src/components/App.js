@@ -6,24 +6,25 @@ import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
 //Components
 import Chart from "./helpercomponents/chart";
-import Footer from "./helpercomponents/footer";
 //Files
 import profile from "../content/assets/profile.png";
 import { data } from "../resumeInfo";
+
 import "./App.css";
 
 const gray = "rgb(74, 74, 74)";
 
 const style = {
   titleName: {
-    color: gray,
+    color: "#000",
     textTransform: "uppercase",
-    // lineHeight: "2.2813rem",
-    fontWeight: "300",
-    fontSize: "1.825rem"
+    margin: "5px 0 0 0",
+    fontSize: "1.7rem",
+    fontWeight: "600",
+    fontFamily: "'Times New Roman', Times, serif"
   },
   bar: {
-    backgroundColor: gray,
+    // backgroundColor: gray,
     flexFlow: "row",
     height: "fit-content",
     fontColor: "white",
@@ -36,19 +37,19 @@ const style = {
     marginTop: "20px"
   },
   icon: {
-    color: gray,
+    color: "#000",
     padding: "10px"
   },
   section: {
     margin: "1em 0",
     borderLeft: "5px solid",
-    borderColor: gray,
+    borderColor: "#000",
     borderRadius: "3px",
     padding: "0.1em",
     backgroundColor: "lightgray",
     width: "fit-content",
     fontWeight: "bold",
-    color: gray
+    color: "#000"
   },
   jobs: {
     display: "flex",
@@ -64,14 +65,15 @@ const style = {
     flexFlow: "column",
     padding: "0.5em",
     borderLeft: "3px solid",
-    borderColor: gray,
+    borderColor: "#000",
     content: "attr(date)"
   },
   tag: {
-    fill: "gray !imporant",
+    fill: "#000 !imporant",
     height: "25px",
     width: "25px",
     borderRadius: "100%",
+    marginTop: "6.5px",
     marginLeft: "-22px",
     color: "white",
     fontWeight: "bold"
@@ -124,9 +126,7 @@ class App extends Component {
       >
         <header className="App-header">
           <img src={profile} className="App-logo" alt="profile" />
-          <Typography variant="h4" className={classes.titleName} gutterBottom>
-            Ayoub Eddakhly
-          </Typography>
+          <span className={classes.titleName}>Ayoub Ed Dakhly</span>
           <Typography variant="subheading">
             <i>ayoubed@protonmail.com</i>
           </Typography>
@@ -187,11 +187,11 @@ class App extends Component {
                     }}
                   >
                     {/* <div className={classes.tag}>{index + 1}</div> */}
-                    <img
+                    {/* <img
                       className={classes.tag}
                       src={require(`../content/assets/${index + 1}.svg`)}
                       alt="alt"
-                    />
+                    /> */}
                     <div className={classes.jobContent}>
                       <div
                         style={{
@@ -214,11 +214,26 @@ class App extends Component {
                           {ele.time}
                         </Typography>
                       </div>
-                      <Typography variant="subtitle2">{ele.title}</Typography>
-                      <Typography variant="body1" style={{ padding: "5px" }}>
-                        {" "}
-                        {ele.description}
-                      </Typography>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexFlow: "column",
+                          flexGrow: 1,
+                          width: "100%",
+                          paddingLeft: "10px",
+                          alignItems: "flex-start"
+                        }}
+                      >
+                        <Typography
+                          variant="subtitle2"
+                          style={{ fontStyle: "italic", color: "gray" }}
+                        >
+                          {ele.title}
+                        </Typography>
+                        <Typography variant="body1" style={{ padding: "5px" }}>
+                          {ele.description}
+                        </Typography>
+                      </div>
                     </div>
                     <img
                       src={require(`../content/assets/${ele.logo}.png`)}
@@ -259,12 +274,17 @@ class App extends Component {
           <Typography variant="h5" align="left" className={classes.section}>
             About
           </Typography>
-          <div style={{ display: "flex", flexFlow: "row", flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              flexFlow: "row",
+              flexWrap: "wrap",
+              alignItems: "flex-start"
+            }}
+          >
             <div style={{ flex: 1, minWidth: "300px" }}>
               {data.aboutme.map((ele, index) => (
-                <Typography variant="body1" align="left" paragraph key={index}>
-                  {ele}
-                </Typography>
+                <div key={index}>{ele}</div>
               ))}
             </div>
           </div>
@@ -275,7 +295,6 @@ class App extends Component {
             </Typography>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

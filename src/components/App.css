@@ -2,9 +2,6 @@
   text-align: center;
   padding-left: 15vw;
   padding-right: 15vw;
-  padding-top: 5vh;
-  overflow: auto;
-  height: 100%;
 }
 
 ::-webkit-scrollbar {

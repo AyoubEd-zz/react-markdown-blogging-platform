@@ -22,7 +22,7 @@ export const blog = [
     title: "Building my first API using Serverless, Typescript and GraphQl",
     link: "building-my-first-api-using-serverless-typescript-and-graphql",
     description:
-      "Serverless is a new trend for the deployment of cloud applications. Re    cently it has gained much popularity mainly due to the shift of enterp    rise application architectures to containers and microservices..."
+      "Serverless is a new trend for the deployment of cloud applications. Recently it has gained much popularity mainly due to the shift of enterp    rise application architectures to containers and microservices..."
   }
 ];
 
@@ -40,6 +40,27 @@ export const competitiveprogramming = [
     title: "UVa 11831 - Sticker Collector Robot",
     link: "11831-sticker-collector-robot",
     category: "uva"
+  },
+  {
+    date: "2019-04-20",
+    tag: ["uva", "graphs", "SCC"],
+    title: "UVa 247 - Calling Circles",
+    link: "247-calling-circles",
+    category: "uva"
+  },
+  {
+    date: "2019-04-20",
+    tag: ["kickstart 2019"],
+    title: "Google Kickstart 2019 - Round A Training Problem",
+    link: "roundA2019-training",
+    category: "kickstart"
+  },
+  {
+    date: "2019-04-23",
+    tag: ["kickstart 2019"],
+    title: "Google Kickstart 2019 - Round B Building Palindromes",
+    link: "2019-Round-B-A",
+    category: "kickstart"
   }
 ];
 

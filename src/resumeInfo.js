@@ -32,8 +32,8 @@ export const data = {
   images: [{ title: "codeit2017" }],
   aboutme: [
     "Hello! I'm Ayoub, a Software Engineer interested in designing and working on large scale systems.",
-    "I'm a senior at INPT, with a focus on new technologies and fields like AI, Machine Learning, Cloud Computing, and Distributed Systems.",
-    "I am part of the Competitive Programming Club, where I tutored Algorithms & Data Structures. And I also a tutor at several Web Development Bootcamps held in my school.",
+    "I'm a senior at INPT, with a focus on new technologies and fields like Cloud Computing, and Distributed Systems.",
+    "I am part of the Competitive Programming Club, where I tutored Algorithms & Data Structures.",
     "In a nutshell, I like programming, sharing knowledge and building meaningful exciting projects!"
   ]
 };

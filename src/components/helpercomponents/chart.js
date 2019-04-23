@@ -103,6 +103,6 @@ export default class Chart extends Component {
         }
       ]
     };
-    return <Doughnut data={chartData} options={chartOptions} />;
+    return <Doughnut data={chartData} options={chartOptions} style={{marginBottom:"10vh"}}/>;
   }
 }
