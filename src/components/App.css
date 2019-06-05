@@ -10,6 +10,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
+  background: #282828;
 }
 
 /* Handle */
@@ -20,7 +21,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #A0A0A0;
 }
 
 @media only screen and (max-width: 800px) {

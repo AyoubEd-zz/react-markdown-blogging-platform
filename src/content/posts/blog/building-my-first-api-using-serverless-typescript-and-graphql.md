@@ -9,31 +9,32 @@ The serverless framework is a recent development in the serverless ecosystem. It
 Serverless is provider agnostic, so you only have to develop one version of your application to run anywhere you want it too.
 So without further ado, let’s dive into some code.
 
-### Getting started with Serverless
+## Getting started with Serverless
 
 In this tutorial, we are using :
 
-- **Typescript**
+- Typescript
 
-- **AWS Lambda**
+- AWS Lambda
 
-- **GraphQl(Apollo)**
+- GraphQl(Apollo)
 
-- [\*\*Serverless Framework](https://serverless.com/)\*\*
+- [Serverless Framework](https://serverless.com/)
 
-- **Redis**
+- Redis
 
 First, let’s install Serverless framework on our machine.
 
 Next, let’s set up our AWS credentials.
 
-Go to your [\*AWS console](https://console.aws.amazon.com/console/home) > Security, Identity, & Compliance > IAM > Users\*. Create a new user with programmatic access( the one that enables an **access key ID** and **secret access key**). Click on next to set up permissions, attach existing policies and give it “administrator access”. Skip tags, and then click on “Create User”. We get a pair of keys that we have to export as environment variables on our machine so they would be accessible to Serverless and the AWS SDK in your shell.
+Go to your [AWS console](https://console.aws.amazon.com/console/home) > Security, Identity, & Compliance > IAM > Users. Create a new user with programmatic access( the one that enables an **access key ID** and **secret access key**). Click on next to set up permissions, attach existing policies and give it “administrator access”. Skip tags, and then click on “Create User”. We get a pair of keys that we have to export as environment variables on our machine so they would be accessible to Serverless and the AWS SDK in your shell.
 
-In your terminal, enter the following:
+Now save these credentials but running this in your terminal:
 
-—
-
-### Creating our Boilerplate
+```
+serverless config credentials --provider aws --key YOUR_ACCESS_KEY --secret YOUR_SECRET_KEY
+```
+## Creating our Boilerplate
 
 Now that we have our environment ready let’s start by creating the boilerplate of our application.
 
@@ -66,7 +67,7 @@ If you look at our _serverless.yml_ file, you’ll notice that we have a functio
 
 Now let’s go ahead and integrate GraphQl…
 
-### Integrating Apollo(GraphQl)
+## Integrating Apollo(GraphQl)
 
 First Install Apollos’ package for Lambda:
 
@@ -94,7 +95,7 @@ Our second part is now finished, we only have to test our work.
 
 Awesome, now that we have GraphQl integrated, let’s set up our Database.
 
-### Running a Redis image on EC2
+## Running a Redis image on EC2
 
 In the following, we are going to create an EC2 instance and start a Redis instance with Docker.
 
@@ -136,7 +137,7 @@ Let’s check it:
 
 Finally, let’s start working on our API.
 
-### Building our API
+## Building our API
 
 _Handler.ts:_
 
@@ -262,7 +263,7 @@ and then add this to your _webpack.config.js:_
 
     },
 
-### Deploying to AWS Lambda
+## Deploying to AWS Lambda
 
 Were you afraid of the deployment? Let me show you how easy it is to deploy your app with Serverless.
 

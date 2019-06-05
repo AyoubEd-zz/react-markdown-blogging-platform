@@ -12,8 +12,6 @@ import { data } from "../resumeInfo";
 
 import "./App.css";
 
-const gray = "rgb(74, 74, 74)";
-
 const style = {
   titleName: {
     color: "#000",
@@ -64,9 +62,11 @@ const style = {
     display: "grid",
     flexFlow: "column",
     padding: "0.5em",
-    borderLeft: "3px solid",
+    borderLeft: "5px solid",
     borderColor: "#000",
-    content: "attr(date)"
+    content: "attr(date)",
+    marginBottom: "10px",
+    backgroundColor: "#F5F5F5"
   },
   tag: {
     fill: "#000 !imporant",
@@ -282,7 +282,7 @@ class App extends Component {
               alignItems: "flex-start"
             }}
           >
-            <div style={{ flex: 1, minWidth: "300px" }}>
+            <div style={{ flex: 1, minWidth: "300px", fontStyle:"italic" }}>
               {data.aboutme.map((ele, index) => (
                 <div key={index}>{ele}</div>
               ))}

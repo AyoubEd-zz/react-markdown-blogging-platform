@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-
-const gray = "rgb(74, 74, 74)";
 
 const styles = {
   menuItem: {
     width: "fit-content",
     margin: "0 10px",
     fontWeight: 600,
-    color: "#fff",
+    fontSize: "14px",
     textDecoration: "none",
+    textTransform: "uppercase",
     "&:hover": {
       textDecoration: "underline"
     }
@@ -19,9 +19,10 @@ const styles = {
 };
 
 class Menu extends Component {
+
   render() {
     const { classes } = this.props;
-
+    
     return (
       <div
         style={{
@@ -42,38 +43,45 @@ class Menu extends Component {
             margin: "15px 0"
           }}
         >
-          <Typography variant="button">
-            <Link
-              to="/"
-              className={classes.menuItem}
-              // style={{
-              //   textDecoration:
-              //     this.props.match.url == "Home" ? "underline" : ""
-              // }}
-            >
-              Home
-            </Link>
-          </Typography>
-          <Typography variant="button">
-            <Link to="/blog" className={classes.menuItem}>
-              Blog
-            </Link>
-          </Typography>
-          <Typography variant="button">
-            <Link to="/competitiveprogramming" className={classes.menuItem}>
-              Competitive Programming
-            </Link>
-          </Typography>
-          <Typography variant="button">
-            <Link to="/teachingmyselfcs" className={classes.menuItem}>
-              Teaching myself cs
-            </Link>
-          </Typography>
-          <Typography variant="button">
-            <Link to="/opensource" className={classes.menuItem}>
-              Open Source
-            </Link>
-          </Typography>
+          <Link
+            to="/"
+            className={classes.menuItem}
+            style={{ color: "#fff" }}
+            // style={"{
+            //   textDecoration:
+            //     this.props.match.url == "Home" ? "underline" : ""
+            // }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/blog"
+            className={classes.menuItem}
+            style={{ color: "#fff"}}
+          >
+            Blog
+          </Link>
+          <Link
+            to="/competitiveprogramming"
+            className={classes.menuItem}
+            style={{ color: "#fff" }}
+          >
+            Competitive Programming
+          </Link>
+          <Link
+            to="/teachingmyselfcs"
+            className={classes.menuItem}
+            style={{ color: "#fff" }}
+          >
+            Teaching myself cs
+          </Link>
+          <Link
+            to="/opensource"
+            className={classes.menuItem}
+            style={{ color: "#fff" }}
+          >
+            Open Source
+          </Link>
         </div>
       </div>
     );

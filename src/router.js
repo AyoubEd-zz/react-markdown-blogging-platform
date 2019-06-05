@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import Blog from "./components/blog";
+import Post from "./components/subcomponents/post"
 import Menu from "./components/helpercomponents/menu";
 import Footer from "./components/helpercomponents/footer";
 
@@ -20,6 +21,7 @@ class RouterComponent extends React.Component {
           <div style={{ flexGrow: 1, marginTop: "70px" }}>
             <Switch>
               <Route path="/" exact component={App} />
+              <Route path="/*/*" exact component={Post} />
               <Route path="/*" render={props => <Blog {...props} />} />
             </Switch>
           </div>

@@ -49,9 +49,16 @@ class Post extends Component {
   };
 
   render() {
+    const url = window.location.pathname
+    const regex = /\/(.*?)\//g
+    const page = url.match(regex)
+    const str = (page && page.length>0)?page[0]:url
     return (
       <div>
-        <div className="result-pane">
+        <div className='return-button'>
+          <a href={str.substr(0, str.length-1)}>Return</a>
+        </div>
+        <div className="result-pane" style={{padding:"0 20vw"}}>
           <div className="markdown-body">
             <Markdown
               source={this.state.text}

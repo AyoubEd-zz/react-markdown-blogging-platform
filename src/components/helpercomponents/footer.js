@@ -7,7 +7,7 @@ class Footer extends Component {
         style={{
           display: "flex",
           justifyContent: "center",
-          background: "#F6F6F6",
+          background: "#F9F9F9",
           marginTop: "20px"
         }}
       >

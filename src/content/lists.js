@@ -8,7 +8,7 @@ export const opensource_tags = [];
 export const blog_description =
   "Forget about someone’s resume or how they present themselves at a party. Can they blog or not? The blog doesn’t lie. – Nick Denton";
 export const competitiveprogramming_description =
-  "For me, a software engineer who has a rigorous, clearly articulated problem solving approach will always impress me. – Anthony D. Mays";
+  "A software engineer who has a rigorous, clearly articulated problem solving approach will always impress me. – Anthony D. Mays";
 export const teachingmyselfcs_description =
   "Computer Science is the operating system for all innovation. – Steve Balmer";
 export const opensource_description =

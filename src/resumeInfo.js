@@ -31,9 +31,11 @@ export const data = {
   ],
   images: [{ title: "codeit2017" }],
   aboutme: [
-    "Hello! I'm Ayoub, a Software Engineer interested in designing and working on large scale systems.",
-    "I'm a senior at INPT, with a focus on new technologies and fields like Cloud Computing, and Distributed Systems.",
-    "I am part of the Competitive Programming Club, where I tutored Algorithms & Data Structures.",
-    "In a nutshell, I like programming, sharing knowledge and building meaningful exciting projects!"
+    "Hello! I'm Ayoub, a Software Engineer fascinated by large scale systems.",
+    "I'm into the theory and technologies that help build these systems like Distributed Systems theory",
+    "and Cloud Computing new technolgical advances.",
+    "I'm a competitive programming enthusiast because good infrastructure can only take you so far, and good algorithms ",
+    "and data structures are the way to go",
+    "In a nutshell, I like programming, sharing knowledge and building meaningful projects!"
   ]
 };
