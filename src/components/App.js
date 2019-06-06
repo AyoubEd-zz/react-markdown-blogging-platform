@@ -40,10 +40,11 @@ const style = {
   },
   section: {
     margin: "1em 0",
-    borderLeft: "5px solid",
+    border: "3px solid",
+    padding:"0 5px",
     borderColor: "#000",
     borderRadius: "3px",
-    padding: "0.1em",
+    // padding: "0.1em",
     backgroundColor: "lightgray",
     width: "fit-content",
     fontWeight: "bold",
@@ -63,7 +64,7 @@ const style = {
     flexFlow: "column",
     padding: "0.5em",
     borderLeft: "5px solid",
-    borderColor: "#000",
+    borderColor: "#388bff",
     content: "attr(date)",
     marginBottom: "10px",
     backgroundColor: "#F5F5F5"

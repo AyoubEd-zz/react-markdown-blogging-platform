@@ -34,48 +34,31 @@ export default class Chart extends Component {
     super(props);
     this.state = { languageData: [] };
   }
-  componentDidMount() {
+  async componentDidMount() {
     const exArr = ["AyoubEd/OS161"];
     const lanExArr = ["HTML", "CSS", "TypeScript"];
-    Axios({
-      method: "get",
-      url: "https://api.github.com/users/ayoubed/repos"
+    const repos_arr = await Axios({method: "get", url: "https://api.github.com/users/ayoubed/repos"}).then(response => {
+      return response.data
+        .filter(ele => ele.fork === false)
+        .map(ele => ele.full_name);
     })
-      .then(response => {
-        return response.data
-          .filter(ele => ele.fork === false)
-          .map(ele => ele.full_name);
-      })
-      .then(response => {
-        const lanArr = [];
-        for (let i of response) {
-          if (exArr.includes(i)) continue;
-          // console.log(i);
-          Axios({
-            method: "get",
-            url: `https://api.github.com/repos/${i}/languages`
-          })
-            .then(res => {
-              lanArr.push(res.data);
-            })
-            .then(() => {
-              let resArr = new Map();
-              lanArr.map(d => {
-                let keyNames = Object.keys(d);
-                for (let j of keyNames) {
-                  // console.log(j);
-                  if (lanExArr.includes(j)) continue;
-                  let val = resArr.get(j) ? Number(resArr.get(j)) : 0 + d[j];
-                  resArr.set(j, val);
-                }
-                return d;
-              });
-              let lbs = Array.from(resArr.keys());
-              let vals = Array.from(resArr.values());
-              this.setState({ labels: lbs, data: vals });
-            });
+    let langs = {}
+    for(let i of repos_arr){
+      if(exArr.includes(i)) continue;
+      let langs_res = await Axios({method: "get", url: `https://api.github.com/repos/${i}/languages`})
+      const langs_obj = langs_res.data
+      for(let pr in langs_obj){
+        if(lanExArr.includes(pr)) continue
+        if(langs_obj.hasOwnProperty(pr)) {
+          if(langs.hasOwnProperty(pr)) langs[pr] += langs_obj[pr]
+          else langs[pr] = langs_obj[pr]
         }
-      });
+      }
+    }
+
+    let lbs = Object.keys(langs);
+    let vals = Object.values(langs);
+    this.setState({ labels: lbs, data: vals });
   }
   render() {
     const { labels, data } = this.state;

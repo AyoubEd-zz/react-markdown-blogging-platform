@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Markdown from "react-markdown/with-html";
 import CodeBlock from "../code-block";
+import { Link } from "react-router-dom";
 //Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
 //Components
@@ -56,7 +57,16 @@ class Post extends Component {
     return (
       <div>
         <div className='return-button'>
-          <a href={str.substr(0, str.length-1)}>Return</a>
+              <Link
+              to={str.substr(0, str.length-1)}
+                style={{
+                  textDecoration: "none",
+                  '&:hover':{
+                    textDecoration:"underline"
+                  }
+                }}>
+                  Return
+                </Link>
         </div>
         <div className="result-pane" style={{padding:"0 20vw"}}>
           <div className="markdown-body">
