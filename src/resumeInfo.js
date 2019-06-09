@@ -5,7 +5,7 @@ export const data = {
       time: "March-September 2019",
       title: "Software Engineer Intern",
       logo: "carians",
-      description: "I'm working on Carians back-office. I'm working on the new platform, this includes gathering a huge amount of medical data, managing the databases and implementing the server code and the user interface that will consume it."
+      description: "I'm working on Carians back-office. I'm reponsible for the new platform, this includes gathering a huge amount of medical data, managing the databases and implementing the server code and the user interface that will consume it."
     },
     {
       company: "WaystoCap",
