@@ -21,7 +21,7 @@ class RouterComponent extends React.Component {
           <div style={{ flexGrow: 1, marginTop: "70px" }}>
             <Switch>
               <Route path="/" exact component={App} />
-              <Route path="/:cat/:post" exact component={Post} />
+              <Route path="/:cat/*" exact component={Post} />
               <Route path="/*" render={props => <Blog {...props} />} />
             </Switch>
           </div>
