@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //Material UI Imports
-import { Typography } from "@material-ui/core";
+import { Typography, Card, CardHeader, CardContent } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 // import { Github, Linkedin } from "@material-ui/icons";
@@ -250,21 +250,18 @@ class App extends Component {
             Projects
           </Typography>
           <div className={classes.projects}>
-            {data.projects.map(ele => (
-              <div className={classes.videoContainer}>
-                <iframe
-                  title={ele.title}
-                  src={ele.src}
-                  height="auto"
-                  width="100%"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                />
-              </div>
-            ))}
+            {data.projects.map(ele => {
+              console.log(ele)
+              return (
+              <Card>
+                <CardHeader>{ele.title}</CardHeader>
+                <CardContent>{ele.content}</CardContent>
+              </Card>
+            )
+            }
+            
+            )}
           </div>
-
           <Typography variant="h5" align="left" className={classes.section}>
             Blog Posts
           </Typography>
