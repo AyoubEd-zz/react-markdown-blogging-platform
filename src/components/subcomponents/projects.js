@@ -21,18 +21,35 @@ const styles = {
     borderRadius: "10px",
     paddingRight: "10px"
   },
+  projectTitle: {
+    cursor: "pointer",
+    textDecoration: "none",
+    width: "fit-content",
+    fontWeight: 600,
+    color: "#222",
+    fontSize: "1.4875rem",
+    lineHeight: "1.0375rem",
+    borderBottom: "0.5px solid white",
+    "&:hover": {
+      borderBottom: "0.5px solid gray"
+    }
+  },
   projectCover: {
     width: 500
   },
-  projectTitle: {
-    padding: "0 0 8px 0",
-    "&:hover": {
-      textDecoration: "underline",
-      cursor: "pointer"
-    }
-  },
   projectBody: {
     textAlign: "left"
+  },
+  upperCat: {
+    textTransform: "uppercase",
+    fontWeight: 600,
+    fontSize: ".875rem",
+    marginRight: "10px",
+    color: "#F19F46",
+    "&:hover": {
+      color: "#5d93ff",
+      cursor: "pointer"
+    }
   }
 };
 
@@ -61,15 +78,26 @@ class Projects extends React.Component {
               >
                 <div style={{ display: "flex", width: "90%" }}>
                   <div style={{ display: "flex", flexFlow: "column" }}>
-                    <Typography variant="h6" align="left" style={{ marginBottom: "15px" }}>
-                      {ele.title}
+                    <Typography variant="h6" align="left">
+                      <a href={ele.url} target="_blank" rel="noopener noreferrer" className={classes.projectTitle}>
+                        {ele.title}
+                      </a>
                     </Typography>
+                    <div style={{ display: "flex", marginTop: "5px", marginBottom: "20px" }}>
+                      {ele.tag.map(ele => (
+                        <div key={ele.toString()} className={classes.upperCat}>
+                          {ele}
+                        </div>
+                      ))}
+                    </div>
                     <div style={{ textAlign: "left" }}>{ele.content}</div>
                   </div>
                 </div>
               </div>
               <div style={{ flex: "0 50%", textAlign: index % 2 === 0 ? "right" : "left" }}>
-                <img width="90%" src={require("../../content/assets/image-test.png")} alt="project" />
+                <a href={ele.url} target="_blank" rel="noopener noreferrer">
+                  <img width="90%" src={require(`../../content/assets/${ele.image}`)} alt="project" />
+                </a>
               </div>
             </div>
           );
