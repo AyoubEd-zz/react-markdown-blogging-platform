@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Markdown from "react-markdown/with-html";
 import CodeBlock from "../code-block";
-import { Link } from "react-router-dom";
 //Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
 //Components
@@ -20,17 +19,12 @@ class Post extends Component {
   }
   componentDidMount() {
     this.readTextFile();
-    // console.log(this.props.match.url);
   }
 
   readTextFile = () => {
     try {
       var rawFile = new XMLHttpRequest();
-      rawFile.open(
-        "GET",
-        require(`../../content/posts${this.props.match.url}.md`),
-        false
-      );
+      rawFile.open("GET", require(`../../content/posts${this.props.match.url}.md`), false);
       rawFile.onreadystatechange = () => {
         if (rawFile.readyState === 4) {
           if (rawFile.status === 200 || rawFile.status === 0) {
@@ -50,25 +44,12 @@ class Post extends Component {
   };
 
   render() {
-    const url = window.location.pathname
-    const regex = /\/(.*?)\//g
-    const page = url.match(regex)
-    const str = (page && page.length>0)?page[0]:url
     return (
       <div>
-        <div className='return-button'>
-              <Link
-              to={str.substr(0, str.length-1)}
-                style={{
-                  textDecoration: "none",
-                  '&:hover':{
-                    textDecoration:"underline"
-                  }
-                }}>
-                  Return
-                </Link>
+        <div className="return-button">
+          <div onClick={() => window.history.back()}>Return</div>
         </div>
-        <div className="result-pane" style={{padding:"0 20vw"}}>
+        <div className="result-pane" style={{ padding: "0 20vw" }}>
           <div className="markdown-body">
             <Markdown
               source={this.state.text}

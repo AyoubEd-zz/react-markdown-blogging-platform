@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  padding-left: 15vw;
-  padding-right: 15vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 ::-webkit-scrollbar {
@@ -21,7 +21,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #A0A0A0;
+  background: #a0a0a0;
 }
 
 @media only screen and (max-width: 800px) {

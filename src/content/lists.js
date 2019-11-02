@@ -1,6 +1,6 @@
 //Tag Lists
 export const blog_tags = ["GraphQl", "Redis", "API"];
-export const competitiveprogramming_tags = ["UVa", "Graphs", "DFS"];
+export const competitiveprogramming_tags = ["UVA", "Graphs", "DFS"];
 export const teachingmyselfcs_tags = [];
 export const opensource_tags = [];
 
@@ -13,6 +13,20 @@ export const teachingmyselfcs_description =
   "Computer Science is the operating system for all innovation. – Steve Balmer";
 export const opensource_description =
   "In open source, we feel strongly that to really do something well, you have to get a lot of people involved. – Linus Torvalds";
+
+// Featured Posts list
+
+export const featuredposts = [
+  {
+    date: "2018-11-27",
+    subUrl: "blog",
+    tag: ["graphql", "redis", "API"],
+    title: "Building my first API using Serverless, Typescript and GraphQl",
+    link: "building-my-first-api-using-serverless-typescript-and-graphql",
+    description:
+      "Serverless is a new trend for the deployment of cloud applications. Recently it has gained much popularity mainly due to the shift of enterp    rise application architectures to containers and microservices..."
+  }
+];
 
 //Post Lists
 export const blog = [
@@ -29,21 +43,21 @@ export const blog = [
 export const competitiveprogramming = [
   {
     date: "2019-04-07",
-    tag: ["uva", "graphs", "dfs"],
+    tag: ["UVA", "Graphs", "DFS"],
     title: "UVa 11902 - Dominator",
     link: "11902-dominator",
     category: "uva"
   },
   {
     date: "2019-04-11",
-    tag: ["uva", "graphs"],
+    tag: ["UVA", "Graphs"],
     title: "UVa 11831 - Sticker Collector Robot",
     link: "11831-sticker-collector-robot",
     category: "uva"
   },
   {
     date: "2019-04-20",
-    tag: ["uva", "graphs", "SCC"],
+    tag: ["UVA", "Graphs", "DFS"],
     title: "UVa 247 - Calling Circles",
     link: "247-calling-circles",
     category: "uva"

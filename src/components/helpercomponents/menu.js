@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
-import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
@@ -19,10 +17,9 @@ const styles = {
 };
 
 class Menu extends Component {
-
   render() {
     const { classes } = this.props;
-    
+
     return (
       <div
         style={{
@@ -54,32 +51,16 @@ class Menu extends Component {
           >
             Home
           </Link>
-          <Link
-            to="/blog"
-            className={classes.menuItem}
-            style={{ color: "#fff"}}
-          >
+          <Link to="/blog" className={classes.menuItem} style={{ color: "#fff" }}>
             Blog
           </Link>
-          <Link
-            to="/competitiveprogramming"
-            className={classes.menuItem}
-            style={{ color: "#fff" }}
-          >
+          <Link to="/competitiveprogramming" className={classes.menuItem} style={{ color: "#fff" }}>
             Competitive Programming
           </Link>
-          <Link
-            to="/teachingmyselfcs"
-            className={classes.menuItem}
-            style={{ color: "#fff" }}
-          >
+          <Link to="/teachingmyselfcs" className={classes.menuItem} style={{ color: "#fff" }}>
             Teaching myself cs
           </Link>
-          <Link
-            to="/opensource"
-            className={classes.menuItem}
-            style={{ color: "#fff" }}
-          >
+          <Link to="/opensource" className={classes.menuItem} style={{ color: "#fff" }}>
             Open Source
           </Link>
         </div>

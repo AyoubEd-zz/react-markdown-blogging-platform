@@ -67,28 +67,20 @@ class Postlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: [],
       url: ""
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.url !== this.state.url) {
-      this.setState({ url: nextProps.match.url, filter: [] });
+      this.setState({ url: nextProps.match.url });
     }
   }
 
-  deleteTagFromFilter = tag => {
-    this.setState(state => ({
-      filter: state.filter.filter(ele => ele !== tag)
-    }));
-  };
-
   render() {
-    const { classes, match } = this.props;
-    const { filter } = this.state;
+    const { classes, match, filter } = this.props;
     let list;
-
+    console.log(this.props.location);
     switch (this.props.location.pathname) {
       case "/blog":
         list = lists.blog;
@@ -106,7 +98,7 @@ class Postlist extends Component {
         list = lists.errorlist;
     }
 
-    for (let tag of this.state.filter) {
+    for (let tag of this.props.filter) {
       list = list.filter(ele => ele.tag.includes(tag));
     }
 
@@ -124,7 +116,7 @@ class Postlist extends Component {
             >
               <Chip
                 label={ele}
-                onDelete={() => this.deleteTagFromFilter(ele)}
+                onDelete={() => this.props.deleteTagFromFilter(ele)}
                 color="secondary"
                 classes={{
                   root: classes.tag,
@@ -135,9 +127,7 @@ class Postlist extends Component {
             </div>
           ))}
         </div>
-        {list.length === 0 && (
-          <div className={classes.postTitle}>Nothing here!</div>
-        )}
+        {list.length === 0 && <div className={classes.postTitle}>Nothing here!</div>}
         {list.map((element, index) => {
           const subUrl = element.category ? element.category + "/" : "";
           return (
@@ -148,19 +138,9 @@ class Postlist extends Component {
                   flexFlow: "row"
                 }}
               >
-                <div className={classes.upperT}>
-                  {moment(element.date).format("MMMM YYYY")}
-                </div>
+                <div className={classes.upperT}>{moment(element.date).format("MMMM YYYY")}</div>
                 {element.tag.map(ele => (
-                  <div
-                    key={ele.toString()}
-                    className={classes.upperCat}
-                    onClick={() =>
-                      this.setState(state => {
-                        return { filter: [...state.filter, ele] };
-                      })
-                    }
-                  >
+                  <div key={ele.toString()} className={classes.upperCat} onClick={() => this.props.addTagToFilter(ele)}>
                     {ele}
                   </div>
                 ))}

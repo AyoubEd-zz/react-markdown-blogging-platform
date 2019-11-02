@@ -15,10 +15,11 @@ class Footer extends Component {
           style={{
             fontStyle: "italic",
             fontSize: "14px",
-            margin: "20px 0"
+            margin: "20px 0",
+            color: "#8c8c8c"
           }}
         >
-          © No rights reserved.
+          Copyright © 2019 , Inc. No rights reserved.
         </div>
       </div>
     );

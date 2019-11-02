@@ -37,21 +37,21 @@ export default class Chart extends Component {
   async componentDidMount() {
     const exArr = ["AyoubEd/OS161"];
     const lanExArr = ["HTML", "CSS", "TypeScript"];
-    const repos_arr = await Axios({method: "get", url: "https://api.github.com/users/ayoubed/repos"}).then(response => {
-      return response.data
-        .filter(ele => ele.fork === false)
-        .map(ele => ele.full_name);
-    })
-    let langs = {}
-    for(let i of repos_arr){
-      if(exArr.includes(i)) continue;
-      let langs_res = await Axios({method: "get", url: `https://api.github.com/repos/${i}/languages`})
-      const langs_obj = langs_res.data
-      for(let pr in langs_obj){
-        if(lanExArr.includes(pr)) continue
-        if(langs_obj.hasOwnProperty(pr)) {
-          if(langs.hasOwnProperty(pr)) langs[pr] += langs_obj[pr]
-          else langs[pr] = langs_obj[pr]
+    const repos_arr = await Axios({ method: "get", url: "https://api.github.com/users/ayoubed/repos" }).then(
+      response => {
+        return response.data.filter(ele => ele.fork === false).map(ele => ele.full_name);
+      }
+    );
+    let langs = {};
+    for (let i of repos_arr) {
+      if (exArr.includes(i)) continue;
+      let langs_res = await Axios({ method: "get", url: `https://api.github.com/repos/${i}/languages` });
+      const langs_obj = langs_res.data;
+      for (let pr in langs_obj) {
+        if (lanExArr.includes(pr)) continue;
+        if (langs_obj.hasOwnProperty(pr)) {
+          if (langs.hasOwnProperty(pr)) langs[pr] += langs_obj[pr];
+          else langs[pr] = langs_obj[pr];
         }
       }
     }
@@ -86,6 +86,6 @@ export default class Chart extends Component {
         }
       ]
     };
-    return <Doughnut data={chartData} options={chartOptions} style={{marginBottom:"10vh"}}/>;
+    return <Doughnut data={chartData} options={chartOptions} style={{ marginBottom: "10vh" }} />;
   }
 }

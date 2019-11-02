@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-//Material UI Imports
-import { Typography, Card, CardHeader, CardContent } from "@material-ui/core";
+/* Material UI */
+import { Typography} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-// import { Github, Linkedin } from "@material-ui/icons";
-//Components
+/* Components */
 import Chart from "./helpercomponents/chart";
-//Files
+import Projects from "./subcomponents/projects";
+import FeaturedPostList from "./subcomponents/featuredpostlist";
+/* Files */
 import profile from "../content/assets/profile.png";
 import { data } from "../resumeInfo";
 
@@ -41,7 +42,7 @@ const style = {
   section: {
     margin: "1em 0",
     border: "3px solid",
-    padding:"0 5px",
+    padding: "0 5px",
     borderColor: "#000",
     borderRadius: "3px",
     // padding: "0.1em",
@@ -53,11 +54,6 @@ const style = {
   jobs: {
     display: "flex",
     flexFlow: "column"
-  },
-  projects: {
-    display: "flex",
-    flexFlow: "row",
-    flexWrap: "wrap"
   },
   job: {
     display: "grid",
@@ -97,9 +93,7 @@ const style = {
     width: "fit-content",
     fontWeight: 600,
     color: "#222",
-    fontSize: "1.4875rem",
-    // lineHeight: "2.4375rem",
-    borderBottom: "0.5px solid white"
+    fontSize: "1.4875rem"
   },
   upperCat: {
     textTransform: "uppercase",
@@ -111,6 +105,10 @@ const style = {
       color: "#5d93ff",
       cursor: "pointer"
     }
+  },
+  a80section: {
+    paddingLeft: "10vw",
+    paddingRight: "10vw"
   }
 };
 
@@ -118,66 +116,30 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div
-        className="App"
-        onScroll={() => {
-          //     const node = ReactDOM.findDOMNode(this);
-          // node.scrollTop = node.scrollHeight;
-        }}
-      >
+      <div className="App">
         <header className="App-header">
           <img src={profile} className="App-logo" alt="profile" />
           <span className={classes.titleName}>Ayoub Ed Dakhly</span>
-          <Typography variant="subheading">
-            <i>ayoubed@protonmail.com</i>
+          <Typography>
+            <i>ayoub.edakhly@gmail.com</i>
           </Typography>
           <div>
-            <a
-              href="https://www.linkedin.com/in/ayoub-eddakhly/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href="https://www.linkedin.com/in/ayoub-eddakhly/" rel="noopener noreferrer" target="_blank">
               <FaLinkedinIn className={classes.icon} />
             </a>
-            <a
-              href="https://github.com/AyoubEd"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href="https://github.com/AyoubEd" rel="noopener noreferrer" target="_blank">
               <FaGithub className={classes.icon} />
             </a>
-            <a
-              href="https://twitter.com/AyoubEddakhly"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href="https://twitter.com/AyoubEddakhly" rel="noopener noreferrer" target="_blank">
               <FaTwitter className={classes.icon} />
             </a>
           </div>
-          {/* <div className={classes.bar}>
-            <div className={classes.textInBar}>
-              <Typography variant="h6" className={classes.textInBar}>
-                Software Engineer | Student at the National Institute INPT
-              </Typography>
-              <div
-                style={{
-                  fontStyle: "italic",
-                  fontSize: "16px",
-                  color: "lightgray"
-                }}
-              >
-                Still building for the love of building, and seeking knowledge
-                for the love of discovery and sharing.
-              </div>
-            </div>
-          </div> */}
         </header>
         <div>
           <Typography variant="h5" align="left" className={classes.section}>
             Experience
           </Typography>
           <div className={classes.jobs}>
-            {!data.jobs && "Undergoing changes"}
             {data.jobs &&
               data.jobs.map((ele, index) => (
                 <div className={classes.job} key={index}>
@@ -187,12 +149,6 @@ class App extends Component {
                       flexFlow: "row"
                     }}
                   >
-                    {/* <div className={classes.tag}>{index + 1}</div> */}
-                    {/* <img
-                      className={classes.tag}
-                      src={require(`../content/assets/${index + 1}.svg`)}
-                      alt="alt"
-                    /> */}
                     <div className={classes.jobContent}>
                       <div
                         style={{
@@ -201,17 +157,10 @@ class App extends Component {
                           alignItems: "center"
                         }}
                       >
-                        <Typography
-                          variant="h6"
-                          className={classes.companyTitle}
-                          style={{ padding: "0 10px" }}
-                        >
+                        <Typography variant="h6" className={classes.companyTitle} style={{ padding: "0 10px" }}>
                           {ele.company}
                         </Typography>
-                        <Typography
-                          variant="caption"
-                          className={classes.upperCat}
-                        >
+                        <Typography variant="caption" className={classes.upperCat}>
                           {ele.time}
                         </Typography>
                       </div>
@@ -225,50 +174,27 @@ class App extends Component {
                           alignItems: "flex-start"
                         }}
                       >
-                        <Typography
-                          variant="subtitle2"
-                          style={{ fontStyle: "italic", color: "gray" }}
-                        >
+                        <Typography variant="subtitle2" style={{ fontStyle: "italic", color: "gray" }}>
                           {ele.title}
                         </Typography>
-                        <Typography variant="body1" style={{ padding: "5px" }}>
+                        <Typography variant="body1" style={{ padding: "5px", textAlign: "left" }}>
                           {ele.description}
                         </Typography>
                       </div>
                     </div>
-                    <img
-                      src={require(`../content/assets/${ele.logo}.png`)}
-                      alt="logo"
-                      style={{ height: "5em" }}
-                    />
+                    <img src={require(`../content/assets/${ele.logo}.png`)} alt="logo" style={{ height: "5em" }} />
                   </div>
                 </div>
               ))}
           </div>
-
           <Typography variant="h5" align="left" className={classes.section}>
             Projects
           </Typography>
-          <div className={classes.projects}>
-            {data.projects.map(ele => {
-              console.log(ele)
-              return (
-              <Card>
-                <CardHeader>{ele.title}</CardHeader>
-                <CardContent>{ele.content}</CardContent>
-              </Card>
-            )
-            }
-            
-            )}
-          </div>
+          <Projects projects={data.projects} />
           <Typography variant="h5" align="left" className={classes.section}>
             Blog Posts
           </Typography>
-          <Typography variant="h5" align="left" className={classes.section}>
-            Extra curriculars
-          </Typography>
-
+          <FeaturedPostList />
           <Typography variant="h5" align="left" className={classes.section}>
             About
           </Typography>
@@ -280,17 +206,11 @@ class App extends Component {
               alignItems: "flex-start"
             }}
           >
-            <div style={{ flex: 1, minWidth: "300px", fontStyle:"italic" }}>
-              {data.aboutme.map((ele, index) => (
-                <div key={index}>{ele}</div>
-              ))}
-            </div>
+            <div style={{ flex: 1, fontStyle: "italic", marginBottom: "20px", textAlign: "left" }}>{data.aboutme}</div>
           </div>
           <div>
             <Chart />
-            <Typography variant="caption">
-              Languages used as reported by Github account.
-            </Typography>
+            <Typography variant="caption">Languages used as reported by Github account.</Typography>
           </div>
         </div>
       </div>

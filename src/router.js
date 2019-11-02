@@ -2,14 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import Blog from "./components/blog";
-import Post from "./components/subcomponents/post"
+import Post from "./components/subcomponents/post";
 import Menu from "./components/helpercomponents/menu";
 import Footer from "./components/helpercomponents/footer";
+import ScrollToTop from "./components/helpercomponents/ScrollToTop";
 
 class RouterComponent extends React.Component {
   render() {
     return (
       <Router>
+        <ScrollToTop />
         <div
           style={{
             display: "flex",

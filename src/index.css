@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Roboto", sans-serif;
-  background: #F9F9F9;
+  background: #f9f9f9;
   text-rendering: optimizeLegibility;
   /* overflow: hidden; */
 }
@@ -42,8 +42,8 @@ body,
   border-bottom: 0px solid #fff !important;
 }
 
-.markdown-body code{
-  padding: 70px; 
+.markdown-body code {
+  padding: 70px;
 }
 
 .markdown-body p {
@@ -64,33 +64,38 @@ body,
 }
 
 .markdown-body ul li {
-  margin-bottom: .625rem;
-  padding: 0 .3125rem;
+  margin-bottom: 0.625rem;
+  padding: 0 0.3125rem;
 }
 
-.markdown-body li>p {
+.markdown-body li > p {
   margin: 0px 0px 16px 0 !important;
   padding: 0 5px;
 }
 
-.markdown-body h2, h3 {
-    margin-top: 3.25rem !important;
-    margin-bottom: .8125rem !important;
+.markdown-body h2,
+h3 {
+  margin-top: 3.25rem !important;
+  margin-bottom: 0.8125rem !important;
 }
 
 .markdown-body h2 {
-    display: block;
-    font-size: 1.6875rem !important;
-    line-height: 2.4375rem !important;
-    border: none !important;
-    
+  display: block;
+  font-size: 1.6875rem !important;
+  line-height: 2.4375rem !important;
+  border: none !important;
 }
 
-.markdown-body h1, h2, h3, h4, h5, h6 {
-    font-weight: 600 !important;
+.markdown-body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600 !important;
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 960px) {
   .return-button {
     position: fixed;
     max-width: auto;
@@ -103,23 +108,23 @@ body,
 
 .return-button {
   display: block;
-    max-width: 5.625rem;
-    height: 35px;
-    padding: 0 1.5rem;
-    line-height: 2.1875rem;
-    text-align: center;
-    color: #222;
-    border: 1px solid #e6e6e6;
-    border-radius: 1.25rem;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  max-width: 5.625rem;
+  height: 35px;
+  padding: 0 1.5rem;
+  line-height: 2.1875rem;
+  text-align: center;
+  color: #222;
+  border: 1px solid #e6e6e6;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.return-button a:hover {
+.return-button:hover {
   color: #5d93ff;
   text-decoration: underline;
   cursor: pointer;
