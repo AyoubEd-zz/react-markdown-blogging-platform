@@ -60,10 +60,11 @@ class Sidebar extends Component {
       <div
         style={{
           display: "block",
+          flex: "1 1 30%",
           flexFlow: "column",
           height: "100%",
-          paddingLeft: "20vh",
-          width: "50vh",
+          paddingLeft: "5vh",
+          // width: "50vh",
           borderRight: "solid 1px #E6E6E6"
         }}
       >

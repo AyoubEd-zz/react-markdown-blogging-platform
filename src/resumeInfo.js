@@ -2,7 +2,7 @@ export const data = {
   jobs: [
     {
       company: "Carians",
-      time: "March-September 2019",
+      time: "March - September 2019",
       title: "Software Engineer Intern",
       logo: "carians",
       description:
@@ -10,7 +10,7 @@ export const data = {
     },
     {
       company: "WaystoCap",
-      time: "July-August 2018",
+      time: "July - August 2018",
       title: "Software Engineer Intern",
       logo: "waystocap",
       description:
@@ -18,7 +18,7 @@ export const data = {
     },
     {
       company: "MosaicLab",
-      time: "July-August 2017",
+      time: "July - August 2017",
       title: "Software Engineer Intern",
       logo: "mosaiclab",
       description:
@@ -26,6 +26,14 @@ export const data = {
     }
   ],
   projects: [
+    {
+      title: "Serverless Commenting API",
+      image: "serverless-apollo-server.png",
+      url: "https://github.com/AyoubEd/Serverless-Typescript-GraphQl-Commenting-API",
+      tag: ["Serverless", "GraphQl", "TypeScript"],
+      content:
+        "Serverless is a new trend for the deployment of cloud applications. Recently it has gained much popularity mainly due to the shift of enterprise application architectures to containers and microservices..."
+    },
     {
       title: "Serverless Commenting API",
       image: "serverless-apollo-server.png",

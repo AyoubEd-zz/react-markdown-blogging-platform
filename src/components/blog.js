@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
 //Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
 //Components
 import Sidebar from "./subcomponents/sidebar";
 import Postlist from "./subcomponents/postlist";
-import Post from "./subcomponents/post";
 //Files
 import "./App.css";
 
@@ -16,6 +14,8 @@ function Blog(props) {
     location: { search }
   } = props;
 
+  const screenWidth = window.screen.width;
+  const bp = 768;
   const [filter, setFilter] = useState(search.length > 0 ? [search.split("=")[1]] : []);
 
   function addTagToFilter(ele) {
@@ -32,36 +32,26 @@ function Blog(props) {
     <div
       style={{
         display: "flex",
-        flexFlow: "row wrap",
+        flexFlow: "row",
         height: "100%"
-        // paddingBottom: "5vh"
       }}
     >
-      <Sidebar {...props} addTagToFilter={addTagToFilter} resetFilter={resetFilter} />
+      {screenWidth >= bp && <Sidebar {...props} addTagToFilter={addTagToFilter} resetFilter={resetFilter} />}
       <div
         style={{
-          padding: "0 60px",
-          flex: "1 1 400px",
+          padding: screenWidth <= bp ? "0 5vw" : "0 60px",
+          flex: "1 1 70%",
           height: "100%",
           overflow: "auto"
         }}
       >
-        <Switch>
-          <Route path="/*/:id" exact component={Post} />
-          <Route
-            path="/*"
-            exact
-            render={props => (
-              <Postlist
-                {...props}
-                list={props.match.url}
-                addTagToFilter={addTagToFilter}
-                deleteTagFromFilter={deleteTagFromFilter}
-                filter={filter}
-              />
-            )}
-          />
-        </Switch>
+        <Postlist
+          {...props}
+          list={props.match.url}
+          addTagToFilter={addTagToFilter}
+          deleteTagFromFilter={deleteTagFromFilter}
+          filter={filter}
+        />
       </div>
     </div>
   );

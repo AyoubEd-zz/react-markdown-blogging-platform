@@ -47,8 +47,7 @@ const styles = {
     marginRight: "10px",
     color: "#F19F46",
     "&:hover": {
-      color: "#5d93ff",
-      cursor: "pointer"
+      color: "#5d93ff"
     }
   }
 };
@@ -56,11 +55,15 @@ const styles = {
 class Projects extends React.Component {
   render() {
     const { classes, projects } = this.props;
+    const screenWidth = window.screen.width;
+    const bp = 768;
+
     return (
       <div className={classes.projects}>
         {projects.map((ele, index) => {
           return (
             <div
+              key={index}
               style={{
                 display: "flex",
                 flexDirection: index % 2 === 0 ? "row" : "row-reverse",
@@ -72,8 +75,8 @@ class Projects extends React.Component {
               <div
                 style={{
                   display: "flex",
-                  flex: "0 50%",
-                  justifyContent: index % 2 === 0 ? "flex-start" : "flex-end"
+                  flex: "1 50%",
+                  justifyContent: screenWidth <= bp || index % 2 === 0 ? "flex-start" : "flex-end"
                 }}
               >
                 <div style={{ display: "flex", width: "90%" }}>
@@ -94,7 +97,12 @@ class Projects extends React.Component {
                   </div>
                 </div>
               </div>
-              <div style={{ flex: "0 50%", textAlign: index % 2 === 0 ? "right" : "left" }}>
+              <div
+                style={{
+                  flex: "1 50%",
+                  textAlign: screenWidth <= bp ? "center" : index % 2 === 0 ? "right" : "left"
+                }}
+              >
                 <a href={ele.url} target="_blank" rel="noopener noreferrer">
                   <img width="90%" src={require(`../../content/assets/${ele.image}`)} alt="project" />
                 </a>

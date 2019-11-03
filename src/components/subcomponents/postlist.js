@@ -80,7 +80,7 @@ class Postlist extends Component {
   render() {
     const { classes, match, filter } = this.props;
     let list;
-    console.log(this.props.location);
+
     switch (this.props.location.pathname) {
       case "/blog":
         list = lists.blog;

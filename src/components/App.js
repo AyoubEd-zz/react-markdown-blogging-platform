@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 /* Material UI */
-import { Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 /* Components */
@@ -99,11 +99,9 @@ const style = {
     textTransform: "uppercase",
     fontWeight: 600,
     fontSize: ".875rem",
-    marginLeft: "10px",
     color: "#F19F46",
     "&:hover": {
-      color: "#5d93ff",
-      cursor: "pointer"
+      color: "#5d93ff"
     }
   },
   a80section: {
@@ -160,8 +158,8 @@ class App extends Component {
                         <Typography variant="h6" className={classes.companyTitle} style={{ padding: "0 10px" }}>
                           {ele.company}
                         </Typography>
-                        <Typography variant="caption" className={classes.upperCat}>
-                          {ele.time}
+                        <Typography variant="subtitle2" style={{ fontStyle: "italic", color: "gray" }}>
+                          {ele.title}
                         </Typography>
                       </div>
                       <div
@@ -174,15 +172,15 @@ class App extends Component {
                           alignItems: "flex-start"
                         }}
                       >
-                        <Typography variant="subtitle2" style={{ fontStyle: "italic", color: "gray" }}>
-                          {ele.title}
+                        <Typography variant="caption" className={classes.upperCat}>
+                          {ele.time}
                         </Typography>
-                        <Typography variant="body1" style={{ padding: "5px", textAlign: "left" }}>
+                        <Typography variant="body1" style={{ padding: "5px", textAlign: "left", marginTop: "8px" }}>
                           {ele.description}
                         </Typography>
                       </div>
                     </div>
-                    <img src={require(`../content/assets/${ele.logo}.png`)} alt="logo" style={{ height: "5em" }} />
+                    <img src={require(`../content/assets/${ele.logo}.png`)} alt="logo" style={{ maxHeight: "5em" }} />
                   </div>
                 </div>
               ))}

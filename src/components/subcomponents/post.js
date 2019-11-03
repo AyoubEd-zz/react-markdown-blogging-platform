@@ -44,12 +44,14 @@ class Post extends Component {
   };
 
   render() {
+    const screenWidth = window.screen.width;
+
     return (
       <div>
         <div className="return-button">
           <div onClick={() => window.history.back()}>Return</div>
         </div>
-        <div className="result-pane" style={{ padding: "0 20vw" }}>
+        <div className="result-pane" style={{ padding: screenWidth <= 768 ? "0 3vw" : "0 20vw" }}>
           <div className="markdown-body">
             <Markdown
               source={this.state.text}

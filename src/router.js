@@ -9,6 +9,8 @@ import ScrollToTop from "./components/helpercomponents/ScrollToTop";
 
 class RouterComponent extends React.Component {
   render() {
+    const screenWidth = window.screen.width;
+
     return (
       <Router>
         <ScrollToTop />
@@ -20,7 +22,7 @@ class RouterComponent extends React.Component {
           }}
         >
           <Menu onChangeUrl={this.onChangeUrl} />
-          <div style={{ flexGrow: 1, marginTop: "70px" }}>
+          <div style={{ flexGrow: 1, marginTop: screenWidth <= 768 ? "0" : "10vh" }}>
             <Switch>
               <Route path="/" exact component={App} />
               <Route path="/:cat/*" exact component={Post} />
