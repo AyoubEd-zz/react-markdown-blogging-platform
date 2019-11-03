@@ -33,14 +33,6 @@ export const data = {
       tag: ["Serverless", "GraphQl", "TypeScript"],
       content:
         "Serverless is a new trend for the deployment of cloud applications. Recently it has gained much popularity mainly due to the shift of enterprise application architectures to containers and microservices..."
-    },
-    {
-      title: "Serverless Commenting API",
-      image: "serverless-apollo-server.png",
-      url: "https://github.com/AyoubEd/Serverless-Typescript-GraphQl-Commenting-API",
-      tag: ["Serverless", "GraphQl", "TypeScript"],
-      content:
-        "Serverless is a new trend for the deployment of cloud applications. Recently it has gained much popularity mainly due to the shift of enterprise application architectures to containers and microservices..."
     }
   ],
   images: [{ title: "codeit2017" }],
