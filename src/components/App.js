@@ -90,6 +90,7 @@ const style = {
     margin: "0.5em"
   },
   companyTitle: {
+    textTransform: "uppercase",
     width: "fit-content",
     fontWeight: 600,
     color: "#222",
@@ -158,8 +159,8 @@ class App extends Component {
                         <Typography variant="h6" className={classes.companyTitle} style={{ padding: "0 10px" }}>
                           {ele.company}
                         </Typography>
-                        <Typography variant="subtitle2" style={{ fontStyle: "italic", color: "gray" }}>
-                          {ele.title}
+                        <Typography variant="caption" className={classes.upperCat}>
+                          {ele.time}
                         </Typography>
                       </div>
                       <div
@@ -172,8 +173,8 @@ class App extends Component {
                           alignItems: "flex-start"
                         }}
                       >
-                        <Typography variant="caption" className={classes.upperCat}>
-                          {ele.time}
+                        <Typography variant="subtitle2" style={{ fontStyle: "italic", color: "gray" }}>
+                          {ele.title}
                         </Typography>
                         <Typography variant="body1" style={{ padding: "5px", textAlign: "left", marginTop: "8px" }}>
                           {ele.description}
