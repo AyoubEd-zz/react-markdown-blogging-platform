@@ -68,7 +68,7 @@ class Projects extends React.Component {
                 display: "flex",
                 flexDirection: index % 2 === 0 ? "row" : "row-reverse",
                 flexWrap: "wrap",
-                marginBottom: "15px",
+                marginBottom: "55px",
                 justifyContent: "space-between"
               }}
             >

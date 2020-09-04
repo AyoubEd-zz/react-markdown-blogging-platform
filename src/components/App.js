@@ -120,10 +120,10 @@ class App extends Component {
           <img src={profile} className="App-logo" alt="profile" />
           <span className={classes.titleName}>Ayoub Ed Dakhly</span>
           <Typography>
-            <i>ayoub.edakhly@gmail.com</i>
+            <i>aeddakhly@gmail.com</i>
           </Typography>
           <div>
-            <a href="https://www.linkedin.com/in/ayoub-eddakhly/" rel="noopener noreferrer" target="_blank">
+            <a href="https://www.linkedin.com/in/ayoubed/" rel="noopener noreferrer" target="_blank">
               <FaLinkedinIn className={classes.icon} />
             </a>
             <a href="https://github.com/AyoubEd" rel="noopener noreferrer" target="_blank">
@@ -142,34 +142,40 @@ class App extends Component {
             {data.jobs &&
               data.jobs.map((ele, index) => (
                 <div className={classes.job} key={index}>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexFlow: "row"
-                    }}
-                  >
-                    <div className={classes.jobContent}>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexFlow: "row",
-                          alignItems: "center"
-                        }}
-                      >
+                  <div className={classes.jobContent}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexFlow: "row",
+                        alignItems: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <div style={{ justifySelf: "flex-start" }}>
                         <Typography variant="h6" className={classes.companyTitle} style={{ padding: "0 10px" }}>
                           {ele.company}
                         </Typography>
+                      </div>
+                      <div style={{ marginLeft: "auto" }}>
                         <Typography variant="caption" className={classes.upperCat}>
                           {ele.time}
                         </Typography>
                       </div>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexFlow: "row",
+                        width: "100%"
+                      }}
+                    >
                       <div
                         style={{
                           display: "flex",
                           flexFlow: "column",
                           flexGrow: 1,
                           width: "100%",
-                          paddingLeft: "10px",
                           alignItems: "flex-start"
                         }}
                       >
@@ -180,8 +186,12 @@ class App extends Component {
                           {ele.description}
                         </Typography>
                       </div>
+                      <div>
+                        <a href={ele.url} target="_blanc">
+                          <img src={require(`../content/assets/${ele.logo}.png`)} alt="logo" style={{ maxHeight: "5em" }} />
+                        </a>
+                      </div>
                     </div>
-                    <img src={require(`../content/assets/${ele.logo}.png`)} alt="logo" style={{ maxHeight: "5em" }} />
                   </div>
                 </div>
               ))}
