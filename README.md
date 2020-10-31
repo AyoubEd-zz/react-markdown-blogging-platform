@@ -1,7 +1,7 @@
 # About the project
 This blogging platform enables you to create posts using Markdown, and define all your posts using JSON. 
 
-You ccan define all you blog posts in `src/content/lists.js`. You can add a title, tags and a description for the preview of the blog post.
+You can define all you blog posts in `src/content/lists.js`. You can add a title, tags and a description for the preview of the blog post.
 
 ```
 //Post Lists
@@ -33,6 +33,12 @@ export const blog = [
 
 <p align="center">
   <img src="misc/tagfilter.png">
+</p>
+
+#  The blog posts are defined using Mardown, they use a similar style to Githubs Readme page. You can add code blocks, images, links...
+
+<p align="center">
+  <img src="misc/blogpost.png">
 </p>
 
 
