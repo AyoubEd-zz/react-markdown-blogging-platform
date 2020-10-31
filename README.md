@@ -1,3 +1,43 @@
+# About the project
+This blogging platform enables you to create posts using Markdown, and define all your posts using JSON. 
+
+You ccan define all you blog posts in `src/content/lists.js`. You can add a title, tags and a description for the preview of the blog post.
+
+```
+//Post Lists
+export const blog = [
+  {
+    date: "2018-11-27",
+    tag: ["graphql", "redis", "API"],
+    title: "Building my first API using Serverless, Typescript and GraphQl",
+    link: "building-my-first-api-using-serverless-typescript-and-graphql",
+    description:
+      "Serverless is a new trend for the deployment of cloud applications. Recently it has gained much popularity mainly due to the shift of enterp    rise application architectures to containers and microservices..."
+  }
+];
+```
+
+### The end result looks like this.
+
+<p align="center">
+  <img src="misc/home.png">
+</p>
+
+### The blog page
+
+<p align="center">
+  <img src="misc/blogpage.png">
+</p>
+
+### You can filter by tags
+
+<p align="center">
+  <img src="misc/tagfilter.png">
+</p>
+
+
+# Make your own blog
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -26,43 +66,3 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
